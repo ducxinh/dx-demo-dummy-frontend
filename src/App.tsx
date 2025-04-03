@@ -1,10 +1,15 @@
-import { Button } from "@/components/ui/button";
+import { AuthProvider } from '@/contexts/AuthContext';
+import { router } from '@/lib/router';
+import { RouterProvider } from 'react-router-dom';
+import { QueryProvider } from './providers/QueryProvider';
 
 function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-svh">
-      <Button>Click me</Button>
-    </div>
+    <QueryProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryProvider>
   );
 }
 

@@ -118,3 +118,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+.bg-box {
+  @apply bg-white dark:bg-[#24303F];
+}

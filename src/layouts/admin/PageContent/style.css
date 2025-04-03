@@ -1,0 +1,8 @@
+:root {
+  --topNavigationHeight: 56px;
+  --bannerHeight: 0px;
+}
+
+.fixed-height .page-content {
+  height: calc(100vh - (var(--topNavigationHeight, 0px) + var(--bannerHeight, 0px)));
+}
