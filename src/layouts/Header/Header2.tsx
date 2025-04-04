@@ -1,6 +1,6 @@
 import { Image } from '@/components/common/Image'
 import { InternalLink } from '@/components/common/InternalLink'
-import { LocaleSwitcher } from '@/components/common/LocaleSwitcher'
+import { LocaleSwitcher } from '@/components/common/LocaleSwitcher/LanguageSwitcher'
 import { Button } from '@/components/ui/button'
 import {
   NavigationMenu,

@@ -1,17 +1,20 @@
 import { Image } from '@/components/common/Image'
 import { InternalLink } from '@/components/common/InternalLink'
+import { Seo } from '@/components/common/Seo/Seo'
 import { Card } from '@/components/ui/card'
 import { SITE_META } from '@/constants/meta'
 import { SignupForm } from '@/features/auth/components/SignupForm'
-// import { SuspenseProvider } from '@/providers/SuspenseProvider'
+import { useTranslations } from "@/hooks/useTranslation"
 
 
 export default function SignupPage() {
+  const { t } = useTranslations('auth');
   return (
     <>
+      <Seo title={t('signUp')} description={t('signUp')} />
       <div className="">
         <section className="bg-gray-50 py-10 dark:bg-gray-900">
-          <div className="_md:h-screen mx-auto flex flex-col items-center justify-center px-6 py-8 lg:py-0">
+          <div className="mx-auto flex flex-col items-center justify-center py-8 lg:py-0">
             <InternalLink
               href="/"
               className="mb-6 flex items-center text-2xl font-semibold text-gray-900 dark:text-white"
@@ -28,7 +31,7 @@ export default function SignupPage() {
             <Card className="w-full max-w-md shadow-lg">
               <div className="space-y-4 px-6 sm:px-8 md:space-y-6">
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
-                  Create an account
+                  {t('signUpTitle')}
                 </h1>
                 <SignupForm />
               </div>

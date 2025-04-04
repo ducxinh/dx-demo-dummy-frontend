@@ -5,8 +5,8 @@ import { EllipsisHorizontalCircleIcon } from '@heroicons/react/24/outline'
 import { Fragment } from 'react'
 import { FaChevronLeft } from 'react-icons/fa'
 import { FiXCircle } from 'react-icons/fi'
-import DropdownMenu from '../Dropdown'
-import { Button } from '../Button'
+// import { DropdownMenu } from '../dropdown-menu'
+import { Button } from '../button'
 
 type ModalType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
 
@@ -99,12 +99,13 @@ export function ModelImage(props: ModalProps) {
                   <div className="text-dark">
                     <FiXCircle className="w-6 h-6 cursor-pointer hidden" />
                     <EllipsisHorizontalCircleIcon className="w-6 h-6 cursor-pointer hidden" />
-                    <DropdownMenu
+                    {/* todo */}
+                    {/* <DropdownMenu
                       placement="bottom-end"
                       options={resolveOptions()}
                       // menuLabel={<EllipsisHorizontalCircleIcon className='w-6 h-6 cursor-pointer' />}
                       menuButtonType="icon"
-                    />
+                    /> */}
                   </div>
                 </div>
                 <div className="mt-2 min-h-[400px] flex items-center justify-center">

@@ -1,0 +1,15 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+- Always use i18n for translate from file [i18n.ts](mdc:src/locales/i18n.ts) with translatation files:
+  + [translation.ts](mdc:src/locales/en/translation.ts)
+  + [translation.ts](mdc:src/locales/ja/translation.ts)
+  + [translation.ts](mdc:src/locales/vi/translation.ts)
+
+## Page structure
+- src/pages/<PageName>/index.tsx
+- Example: src/pages/Login/index.tsx

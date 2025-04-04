@@ -1,0 +1,26 @@
+{
+    "required": "Required",
+    "optional": "Optional",
+    "submit": "Submit",
+    "clear": "Clear",
+    "reset": "Reset",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "selectOption": "Select an option",
+    "placeholders": {
+      "search": "Search...",
+      "email": "Enter your email",
+      "password": "Enter your password",
+      "firstName": "Enter your first name",
+      "lastName": "Enter your last name",
+      "phone": "Enter your phone number"
+    },
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid email",
+      "minChars": "Minimum {{count}} characters required",
+      "maxChars": "Maximum {{count}} characters allowed",
+      "passwordStrength": "Password must contain at least 8 characters, including uppercase, lowercase, and numbers"
+    }
+  }

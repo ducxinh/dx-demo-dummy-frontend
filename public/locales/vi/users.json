@@ -1,0 +1,28 @@
+{
+    "profile": "Profile",
+    "account": "Account",
+    "personalInfo": "Personal Information",
+    "accountSettings": "Account Settings",
+    "preferences": "Preferences",
+    "security": "Security",
+    "privacy": "Privacy",
+    "notifications": "Notifications",
+    "details": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "bio": "Bio",
+      "birthdate": "Date of Birth",
+      "gender": "Gender",
+      "timezone": "Time Zone",
+      "language": "Language"
+    },
+    "actions": {
+      "editProfile": "Edit Profile",
+      "changePassword": "Change Password",
+      "deleteAccount": "Delete Account",
+      "downloadData": "Download My Data"
+    }
+  }

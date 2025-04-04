@@ -1,0 +1,26 @@
+{
+    "success": {
+      "saved": "Successfully saved!",
+      "updated": "Successfully updated!",
+      "deleted": "Successfully deleted!",
+      "created": "Successfully created!",
+      "sent": "Successfully sent!"
+    },
+    "error": {
+      "general": "An error occurred",
+      "saving": "Error saving data",
+      "loading": "Error loading data",
+      "update": "Error updating data",
+      "delete": "Error deleting data"
+    },
+    "info": {
+      "dataLoaded": "Data loaded successfully",
+      "processingRequest": "Processing your request...",
+      "newUpdate": "A new update is available"
+    },
+    "warning": {
+      "unsavedChanges": "You have unsaved changes",
+      "sessionExpiring": "Your session is about to expire",
+      "limitReached": "You've reached the limit"
+    }
+  }

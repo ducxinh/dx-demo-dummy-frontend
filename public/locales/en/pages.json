@@ -1,0 +1,49 @@
+{
+  "home": {
+    "title": "Home"
+  },
+  "notFound": {
+    "title": "Not Found"
+  },
+  "errorPage": {
+    "title": "Error page"
+  },
+  "about": {
+    "title": "About"
+  },
+  "dashboard": {
+    "title": "Dashboard"
+  },
+  "login": {
+    "title": "Login",
+    "loginId": "Login ID (email address)",
+    "password": "password"
+  },
+  "signup": {
+    "title": "Đăng ký"
+  },
+  "emailVerification": {
+    "title": "Xác thực email"
+  },
+  "post": {
+    "title": "Post management"
+  },
+  "tag": {
+    "title": "Tag management"
+  },
+  "file": {
+    "title": "File management"
+  },
+  "category": {
+    "title": "Category management"
+  },
+  "user": {
+    "title": "User",
+    "listTitle": "User List",
+    "id": "ID",
+    "name": "Name"
+  },
+  "employee": {
+    "title": "Employee management"
+  }
+}

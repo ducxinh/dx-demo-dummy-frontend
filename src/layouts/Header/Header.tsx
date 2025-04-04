@@ -1,6 +1,7 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Image } from '@/components/common/Image'
 import { InternalLink } from '@/components/common/InternalLink'
+import { LanguageSwitcher } from '@/components/common/LanguageSwitcher'
 import { NavMenuItem } from '@/components/layout/NavMenuItem'
 import { Button } from '@/components/ui/button'
 import { ROUTE_PATHS } from '@/constants/path'
@@ -33,10 +34,13 @@ export function Header() {
             </InternalLink>
           </div>
           <div className="-mr-2 -my-2 md:hidden">
-            <PopoverButton className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-              <span className="sr-only">Open menu</span>
-              <SquareMenuIcon className="h-6 w-6" aria-hidden="true" />
-            </PopoverButton>
+            <div className="flex">
+              <LanguageSwitcher />
+              <PopoverButton className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                <span className="sr-only">Open menu</span>
+                <SquareMenuIcon className="h-6 w-6" aria-hidden="true" />
+              </PopoverButton>
+            </div>
           </div>
           <PopoverGroup as="nav" className="hidden md:flex space-x-10">
             <Solution />
@@ -53,6 +57,7 @@ export function Header() {
             ) : (
               <>
                 <div className="flex gap-2">
+                  <LanguageSwitcher />
                   <InternalLink href={ROUTE_PATHS.AUTH.LOGIN}>
                     <Button variant="secondary">
                       Sign in

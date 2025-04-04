@@ -1,0 +1,22 @@
+{
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "products": "Products",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Log out",
+    "menu": "Menu",
+    "sidebarToggle": "Toggle sidebar",
+    "breadcrumbs": {
+      "home": "Home",
+      "dashboard": "Dashboard"
+    },
+    "footer": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "copyright": "© {{year}} YourApp. All rights reserved."
+    }
+  }
