@@ -32,7 +32,7 @@ export function ModelImage(props: ModalProps) {
     const options = [
       {
         label: 'Copy',
-        onClick: () => { },
+        onClick: () => {},
       },
       {
         component: (
@@ -40,7 +40,7 @@ export function ModelImage(props: ModalProps) {
             Copy Link
           </CopyClipboard>
         ),
-        onClick: () => { },
+        onClick: () => {},
       },
       {
         component: (
@@ -50,7 +50,7 @@ export function ModelImage(props: ModalProps) {
             </Button>
           </CopyClipboard>
         ),
-        onClick: () => { },
+        onClick: () => {},
       },
     ]
     return options

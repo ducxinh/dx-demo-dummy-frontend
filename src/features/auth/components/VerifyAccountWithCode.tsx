@@ -107,7 +107,7 @@ export function VerifyAccountWithCode() {
                       control={form.control}
                       placeholder="Enter 6-digit code"
                       required={true}
-                    // maxLength={6}
+                      // maxLength={6}
                     />
                     <div className="flex flex-col gap-2">
                       <Button type="submit" className="w-full" disabled={loading.submit}>

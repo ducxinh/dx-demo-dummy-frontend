@@ -16,7 +16,6 @@ export interface IPagination {
   prevPage: number | null
 }
 
-
 export type ErrorType = {
   message?: string
   response?: {

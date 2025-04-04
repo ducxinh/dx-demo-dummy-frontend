@@ -13,4 +13,3 @@ export const SITE_CONFIG = {
   description: import.meta.env.NEXT_PUBLIC_APP_DESCRIPTION || 'Template Starter',
   url: import.meta.env.NEXT_PUBLIC_APP_URL || 'https://example.com',
 }
- 

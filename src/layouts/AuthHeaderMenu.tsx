@@ -1,6 +1,3 @@
 export function AuthHeaderMenu() {
-  return (
-    <></>
-
-  )
+  return <></>
 }

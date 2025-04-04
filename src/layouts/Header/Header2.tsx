@@ -6,7 +6,7 @@ import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
-  NavigationMenuList
+  NavigationMenuList,
 } from '@/components/ui/navigation-menu'
 import { siteMetadata } from '@/data/siteMetadata'
 import { Menu, X } from 'lucide-react'

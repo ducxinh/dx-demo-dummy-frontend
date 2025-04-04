@@ -4,11 +4,10 @@ import { Seo } from '@/components/common/Seo/Seo'
 import { Card } from '@/components/ui/card'
 import { SITE_META } from '@/constants/meta'
 import { SignupForm } from '@/features/auth/components/SignupForm'
-import { useTranslations } from "@/hooks/useTranslation"
-
+import { useTranslations } from '@/hooks/useTranslation'
 
 export default function SignupPage() {
-  const { t } = useTranslations('auth');
+  const { t } = useTranslations('auth')
   return (
     <>
       <Seo title={t('signUp')} description={t('signUp')} />

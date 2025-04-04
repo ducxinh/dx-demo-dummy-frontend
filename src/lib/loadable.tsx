@@ -9,7 +9,7 @@ export const lazyLoad = <
   /* eslint-disable */
   T extends Promise<any>,
   U extends React.ComponentType<any>,
-/* eslint-enable */
+  /* eslint-enable */
 >(
   importFunc: () => T,
   selectorFunc?: (s: Unpromisify<T>) => U,
@@ -18,7 +18,7 @@ export const lazyLoad = <
   let lazyFactory: () => Promise<{ default: U }> = importFunc
 
   if (selectorFunc) {
-    lazyFactory = () => importFunc().then(module => ({ default: selectorFunc(module) }))
+    lazyFactory = () => importFunc().then((module) => ({ default: selectorFunc(module) }))
   }
 
   const LazyComponent = lazy(lazyFactory)

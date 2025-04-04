@@ -27,7 +27,7 @@ export default function Otp(params: Props) {
     if (e.key === 'Delete' || e.key === 'Backspace') {
       const index = inputRefs.current.indexOf(e.target as HTMLInputElement)
       if (index > 0) {
-        setOtp(prevOtp => [...prevOtp.slice(0, index - 1), '', ...prevOtp.slice(index)])
+        setOtp((prevOtp) => [...prevOtp.slice(0, index - 1), '', ...prevOtp.slice(index)])
         inputRefs.current[index - 1]?.focus()
       }
     }
@@ -37,7 +37,7 @@ export default function Otp(params: Props) {
     const { target } = e
     const index = inputRefs.current.indexOf(target as HTMLInputElement)
     if (target.value) {
-      setOtp(prevOtp => [...prevOtp.slice(0, index), target.value, ...prevOtp.slice(index + 1)])
+      setOtp((prevOtp) => [...prevOtp.slice(0, index), target.value, ...prevOtp.slice(index + 1)])
       if (index < otp.length - 1) {
         inputRefs.current[index + 1]?.focus()
       }
@@ -73,7 +73,7 @@ export default function Otp(params: Props) {
                   onKeyDown={handleKeyDown}
                   onFocus={handleFocus}
                   onPaste={handlePaste}
-                  ref={el => (inputRefs.current[index] = el as HTMLInputElement | null)}
+                  ref={(el) => (inputRefs.current[index] = el as HTMLInputElement | null)}
                   className="flex h-full w-full flex-col items-center justify-center rounded-xl border border-gray-200 bg-box px-5 text-center text-lg outline-none ring-blue-700 focus:bg-gray-50 focus:ring-1"
                 />
               </div>

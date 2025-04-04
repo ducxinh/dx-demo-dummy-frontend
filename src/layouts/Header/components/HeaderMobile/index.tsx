@@ -40,7 +40,7 @@ export function HeaderMobile() {
             </div>
             <div className="mt-6">
               <nav className="grid gap-y-8">
-                {solutions.map(item => (
+                {solutions.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
@@ -62,7 +62,7 @@ export function HeaderMobile() {
               <a href="/" className="text-base font-medium text-gray-900 hover:text-gray-700">
                 Docs
               </a>
-              {resources.map(item => (
+              {resources.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}

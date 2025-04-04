@@ -27,18 +27,18 @@ export function QuickSearchResultModal({
   const handleUserAction = () => {
     if (!userAction) return
     if (userAction.name === 'ArrowUp') {
-      setsSelectedIndex(previous => {
+      setsSelectedIndex((previous) => {
         return previous >= 1 ? previous - 1 : previous
       })
     }
     if (userAction.name === 'ArrowDown') {
-      setsSelectedIndex(previous => {
+      setsSelectedIndex((previous) => {
         return previous + 1
       })
     }
     if (userAction.name === 'Enter') {
       if (isOpen) {
-        setSelectedEnter(previous => previous + 1)
+        setSelectedEnter((previous) => previous + 1)
       }
     }
   }
@@ -99,7 +99,7 @@ export function QuickSearchResultModal({
 
   const resolveMenuByObj = (obj: { [key: string]: any }, prefix?: string) => {
     const items: QuickSearchItem[] = []
-    Object.keys(obj).map(key => {
+    Object.keys(obj).map((key) => {
       const value = obj[key]
       // ignore dynamic route
       if (typeof value === 'string' && !value.includes(':')) {
@@ -117,7 +117,7 @@ export function QuickSearchResultModal({
 
     const adminMenu: { [key: string]: any } = ROUTE_PATHS.ADMIN
 
-    Object.keys(adminMenu).map(menuItemKey => {
+    Object.keys(adminMenu).map((menuItemKey) => {
       const value = adminMenu[menuItemKey]
       if (
         ['PAGES', 'CALENDAR', 'PROFILE', 'FORM', 'CHART', 'UI', 'AUTH', 'TASK', 'TABLES'].includes(
@@ -142,7 +142,7 @@ export function QuickSearchResultModal({
   }
 
   const getMenuItems = () => {
-    const menus = resolveBaseMenuItems().filter(item =>
+    const menus = resolveBaseMenuItems().filter((item) =>
       item.name.toLocaleLowerCase().includes(formData.qsKeyword.toLocaleLowerCase()),
     )
     return menus

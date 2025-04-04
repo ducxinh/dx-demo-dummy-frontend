@@ -1,5 +1,5 @@
-import { InternalLink } from "@/components/common/InternalLink"
-import { Image } from "@/components/common/Image"
+import { InternalLink } from '@/components/common/InternalLink'
+import { Image } from '@/components/common/Image'
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,53 +8,52 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import * as React from "react"
-import { useAuth } from "@/contexts/AuthContext"
-import { LogOut, User } from "lucide-react"
+} from '@/components/ui/navigation-menu'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import * as React from 'react'
+import { useAuth } from '@/contexts/AuthContext'
+import { LogOut, User } from 'lucide-react'
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
+    title: 'Alert Dialog',
+    href: '/docs/primitives/alert-dialog',
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      'A modal dialog that interrupts the user with important content and expects a response.',
   },
   {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
+    title: 'Hover Card',
+    href: '/docs/primitives/hover-card',
+    description: 'For sighted users to preview content available behind a link.',
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
+    title: 'Progress',
+    href: '/docs/primitives/progress',
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
   },
   {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
+    title: 'Scroll-area',
+    href: '/docs/primitives/scroll-area',
+    description: 'Visually or semantically separates content.',
   },
   {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
+    title: 'Tabs',
+    href: '/docs/primitives/tabs',
     description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
   },
   {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
+    title: 'Tooltip',
+    href: '/docs/primitives/tooltip',
     description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+      'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
   },
 ]
 
 export function Header() {
-  const { user, logout } = useAuth();
+  const { user, logout } = useAuth()
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -83,18 +82,15 @@ export function Header() {
                   <Image
                     alt={user.name}
                     className="rounded-full"
-                    src={user.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.name}`}
+                    src={
+                      user.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.name}`
+                    }
                     height={32}
                     width={32}
                   />
                   <span className="text-sm font-medium">{user.name}</span>
                 </div>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={logout}
-                  className="h-8 w-8"
-                >
+                <Button variant="ghost" size="icon" onClick={logout} className="h-8 w-8">
                   <LogOut className="h-4 w-4" />
                 </Button>
               </div>
@@ -135,12 +131,9 @@ export function Menus() {
                       alt=""
                     />
                     {/* <Icons.logo className="h-6 w-6" /> */}
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      shadcn/ui
-                    </div>
+                    <div className="mb-2 mt-4 text-lg font-medium">shadcn/ui</div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
+                      Beautifully designed components built with Radix UI and Tailwind CSS.
                     </p>
                   </a>
                 </NavigationMenuLink>
@@ -162,11 +155,7 @@ export function Menus() {
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
+                <ListItem key={component.title} title={component.title} href={component.href}>
                   {component.description}
                 </ListItem>
               ))}
@@ -185,28 +174,25 @@ export function Menus() {
   )
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  )
-})
-ListItem.displayName = "ListItem"
+const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWithoutRef<'a'>>(
+  ({ className, title, children, ...props }, ref) => {
+    return (
+      <li>
+        <NavigationMenuLink asChild>
+          <a
+            ref={ref}
+            className={cn(
+              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+              className,
+            )}
+            {...props}
+          >
+            <div className="text-sm font-medium leading-none">{title}</div>
+            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
+          </a>
+        </NavigationMenuLink>
+      </li>
+    )
+  },
+)
+ListItem.displayName = 'ListItem'

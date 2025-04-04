@@ -1,5 +1,5 @@
-import { Seo } from '@/components/common/Seo/Seo';
-import { useTranslations } from '@/hooks/useTranslation';
+import { Seo } from '@/components/common/Seo/Seo'
+import { useTranslations } from '@/hooks/useTranslation'
 
 export function HomePage() {
   const { t } = useTranslations('home')

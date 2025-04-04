@@ -4,10 +4,10 @@ import { Seo } from '@/components/common/Seo/Seo'
 import { Card } from '@/components/ui/card'
 import { SITE_META } from '@/constants/meta'
 import { LoginForm } from '@/features/auth/components/LoginForm'
-import { useTranslations } from "@/hooks/useTranslation"
+import { useTranslations } from '@/hooks/useTranslation'
 
 export default function LoginPage() {
-  const { t } = useTranslations('auth');
+  const { t } = useTranslations('auth')
 
   return (
     <>

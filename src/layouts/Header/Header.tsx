@@ -59,14 +59,10 @@ export function Header() {
                 <div className="flex gap-2">
                   <LanguageSwitcher />
                   <InternalLink href={ROUTE_PATHS.AUTH.LOGIN}>
-                    <Button variant="secondary">
-                      Sign in
-                    </Button>
+                    <Button variant="secondary">Sign in</Button>
                   </InternalLink>
                   <InternalLink href={ROUTE_PATHS.AUTH.SIGNUP}>
-                    <Button>
-                      Sign up
-                    </Button>
+                    <Button>Sign up</Button>
                   </InternalLink>
                 </div>
               </>

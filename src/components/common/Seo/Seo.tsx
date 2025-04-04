@@ -1,25 +1,23 @@
 // import { Helmet } from "react-helmet-async";
-import { siteMetadata } from "@/data/siteMetadata";
+import { siteMetadata } from '@/data/siteMetadata'
 
 interface SeoProps {
-  title: string;
-  description?: string;
-  keywords?: string;
-  image?: string;
-  url?: string;
+  title: string
+  description?: string
+  keywords?: string
+  image?: string
+  url?: string
 }
 
 export const Seo = ({
   title,
-  description = "Default description",
-  keywords = "default, keywords",
-  image = "/default-og-image.jpg",
-  url = "https://yourdomain.com",
+  description = 'Default description',
+  keywords = 'default, keywords',
+  image = '/default-og-image.jpg',
+  url = 'https://yourdomain.com',
 }: SeoProps) => {
-
   const getTitle = () => {
     return `${title} | ${siteMetadata.title}`
-
   }
   return (
     // <Helmet>
@@ -43,4 +41,4 @@ export const Seo = ({
     </>
     // </Helmet>
   )
-};
+}

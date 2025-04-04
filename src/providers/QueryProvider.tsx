@@ -1,6 +1,6 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactNode } from "react";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactNode } from 'react'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -9,10 +9,10 @@ const queryClient = new QueryClient({
       refetchOnWindowFocus: false, // Avoid refetching when window is focused
     },
   },
-});
+})
 
 interface QueryProviderProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export const QueryProvider = ({ children }: QueryProviderProps) => {
@@ -21,5 +21,5 @@ export const QueryProvider = ({ children }: QueryProviderProps) => {
       {children}
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
-  );
-};
+  )
+}

@@ -3,10 +3,10 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { useTranslations } from '@/hooks/useTranslation';
-import { Language, supportedLngs } from '@/i18n/config';
-import { Globe } from 'lucide-react';
+} from '@/components/ui/dropdown-menu'
+import { useTranslations } from '@/hooks/useTranslation'
+import { Language, supportedLngs } from '@/i18n/config'
+import { Globe } from 'lucide-react'
 
 export function LanguageSwitcher() {
   const { language, changeLanguage } = useTranslations()
@@ -15,7 +15,7 @@ export function LanguageSwitcher() {
     en: 'English',
     ja: '日本語',
     vi: 'Tiếng Việt',
-  };
+  }
 
   return (
     <DropdownMenu>
@@ -40,7 +40,5 @@ export function LanguageSwitcher() {
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-  );
-
-
+  )
 }

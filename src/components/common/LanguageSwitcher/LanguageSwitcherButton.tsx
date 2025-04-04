@@ -1,12 +1,12 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { useTranslations } from '@/hooks/useTranslation';
-import { Language, supportedLngs } from '@/i18n/config';
+} from '@/components/ui/dropdown-menu'
+import { useTranslations } from '@/hooks/useTranslation'
+import { Language, supportedLngs } from '@/i18n/config'
 
 export function LanguageSwitcherButton() {
   const { language, changeLanguage } = useTranslations()
@@ -15,7 +15,7 @@ export function LanguageSwitcherButton() {
     en: 'English',
     ja: '日本語',
     vi: 'Tiếng Việt',
-  };
+  }
 
   return (
     <DropdownMenu>
@@ -36,5 +36,5 @@ export function LanguageSwitcherButton() {
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
-  );
-};
+  )
+}

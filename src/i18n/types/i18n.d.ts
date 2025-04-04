@@ -1,16 +1,17 @@
 // Define the namespace type based on our translation resources
 export type I18nNamespace =
-  | "common"
-  | "home"
-  | "about"
-  | "auth"
-  | "dashboard"
-  | "errors"
-  | "forms"
-  | "navigation"
-  | "notifications"
-  | "products"
-  | "users";
+  | 'common'
+  | 'home'
+  | 'about'
+  | 'auth'
+  | 'dashboard'
+  | 'errors'
+  | 'forms'
+  | 'navigation'
+  | 'notifications'
+  | 'products'
+  | 'zod'
+  | 'users'
 
 // export interface TranslationResources {
 //   common: {

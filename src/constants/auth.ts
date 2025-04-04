@@ -1,16 +1,14 @@
 export enum RoleEnum {
-  USER = "user",
-  ADMIN = "admin",
+  USER = 'user',
+  ADMIN = 'admin',
 }
 
-export type VerifyAccountEmailMethod = "link" | "code";
+export type VerifyAccountEmailMethod = 'link' | 'code'
 
-export const AUTHENTICATE_TOKEN_KEY =
-  "NixLoggerIdentityServiceProvider.server.accessToken";
-export const AUTHENTICATE_USER_KEY =
-  "NixLoggerIdentityServiceProvider.server.userData";
+export const AUTHENTICATE_TOKEN_KEY = 'NixLoggerIdentityServiceProvider.server.accessToken'
+export const AUTHENTICATE_USER_KEY = 'NixLoggerIdentityServiceProvider.server.userData'
 
-export const VERIFY_ACCOUNT_METHOD: VerifyAccountEmailMethod = "code";
+export const VERIFY_ACCOUNT_METHOD: VerifyAccountEmailMethod = 'code'
 
 export const AUTH_CONFIG = {
   tokenKey: import.meta.env.AUTHENTICATE_TOKEN_KEY || AUTHENTICATE_TOKEN_KEY,
@@ -18,5 +16,5 @@ export const AUTH_CONFIG = {
   google: {
     clientId: import.meta.env.VITE_APP_GOOGLE_CLIENT_ID,
   },
-  isVerifyAccountEmailCodeMethod: () => VERIFY_ACCOUNT_METHOD === "code",
-};
+  isVerifyAccountEmailCodeMethod: () => VERIFY_ACCOUNT_METHOD === 'code',
+}

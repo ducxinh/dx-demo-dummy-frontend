@@ -8,7 +8,7 @@ import { lazyLoad } from '@/lib/loadable'
 
 export const About = lazyLoad(
   () => import('./index'),
-  module => module.AboutPage,
+  (module) => module.AboutPage,
   {
     fallback: (
       <LoadingWrapper>

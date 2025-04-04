@@ -1,18 +1,16 @@
-import { ErrorPage } from '@/components/common/ErrorPage';
-import { ROUTE_PATHS } from '@/constants/path';
-import { AuthGuard } from '@/guards/Auth';
-import { AuthRedirect } from '@/guards/AuthRedirect';
-import AdminLayout from '@/layouts/admin/AdminLayout';
-import MainLayout from '@/layouts/MainLayout';
-import { About } from '@/pages/About/Loadable';
-import { Dashboard } from '@/pages/Dashboard/Loadable';
-import EmailVerificationPage from '@/pages/EmailVerification';
-import { HomePage } from '@/pages/Home';
-import LoginPage from '@/pages/Login';
-import SignupPage from '@/pages/Signup';
-import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom';
-
-
+import { ErrorPage } from '@/components/common/ErrorPage'
+import { ROUTE_PATHS } from '@/constants/path'
+import { AuthGuard } from '@/guards/Auth'
+import { AuthRedirect } from '@/guards/AuthRedirect'
+import AdminLayout from '@/layouts/admin/AdminLayout'
+import MainLayout from '@/layouts/MainLayout'
+import { About } from '@/pages/About/Loadable'
+import { Dashboard } from '@/pages/Dashboard/Loadable'
+import EmailVerificationPage from '@/pages/EmailVerification'
+import { HomePage } from '@/pages/Home'
+import LoginPage from '@/pages/Login'
+import SignupPage from '@/pages/Signup'
+import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
 
 // const parseRoutes = (routeItems: RouteObject[]) => {
 //   return routeItems.map(adminRoute => {
@@ -85,15 +83,13 @@ export const routes: RouteObject[] = [
 
   {
     path: '/404',
-    element: (
-      <ErrorPage />
-    ),
+    element: <ErrorPage />,
   },
   {
     path: '*',
     element: <Navigate to="/404" replace />,
   },
-];
+]
 
 // Create router instance
-export const router = createBrowserRouter(routes); 
+export const router = createBrowserRouter(routes)

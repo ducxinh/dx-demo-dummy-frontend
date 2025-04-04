@@ -13,11 +13,11 @@ import { GoogleOAuthProvider } from '@react-oauth/google'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate, useSearchParams } from 'react-router-dom'
-import { z } from 'zod'
 import { useAuthStore } from '../store/authStore'
 import { AuthTokenResponse, User } from '../types'
 import { loginSchema } from '../validations'
 import { LoginGoogle } from './LoginGoogle'
+import { z } from '@/validations/zod'
 
 export function LoginForm() {
   const navigate = useNavigate()
@@ -42,7 +42,7 @@ export function LoginForm() {
     // register,
     // watch,
     // clearErrors,
-    formState: { },
+    formState: {},
   } = form
 
   const onSubmit = async (data: LoginFormValues) => {

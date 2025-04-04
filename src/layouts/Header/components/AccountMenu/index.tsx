@@ -1,5 +1,5 @@
 import { ROUTE_PATHS } from '@/constants/path'
-import { Menu, MenuButton, MenuItem, MenuItems,Transition } from '@headlessui/react'
+import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/contexts/AuthContext'
@@ -34,13 +34,14 @@ export function AccountMenu() {
       >
         <MenuItems className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-box shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="px-1 py-1 ">
-            {menuItems.map(menuItem => (
+            {menuItems.map((menuItem) => (
               <MenuItem key={menuItem.id}>
                 {({ active }) => (
                   <Link to={menuItem.path}>
                     <button
-                      className={`${active ? 'bg-primary text-white' : 'text-gray-900'
-                        } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      className={`${
+                        active ? 'bg-primary text-white' : 'text-gray-900'
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                     >
                       {menuItem.label}
                     </button>
@@ -56,8 +57,9 @@ export function AccountMenu() {
                       navigate(ROUTE_PATHS.AUTH.LOGIN)
                     })
                   }
-                  className={`${active ? 'bg-primary text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                  className={`${
+                    active ? 'bg-primary text-white' : 'text-gray-900'
+                  } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                 >
                   Logout
                 </button>

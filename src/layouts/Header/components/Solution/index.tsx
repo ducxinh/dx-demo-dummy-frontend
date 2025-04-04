@@ -41,7 +41,7 @@ export function Solution() {
             <Popover.Panel className="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
               <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                 <div className="relative grid gap-6 bg-box px-5 py-6 sm:gap-8 sm:p-8">
-                  {solutions.map(item => (
+                  {solutions.map((item) => (
                     <a
                       key={item.name}
                       href={item.href}
@@ -59,7 +59,7 @@ export function Solution() {
                   ))}
                 </div>
                 <div className="px-5 py-5 bg-gray-3 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                  {callsToAction.map(item => (
+                  {callsToAction.map((item) => (
                     <div key={item.name} className="flow-root">
                       <a
                         href={item.href}

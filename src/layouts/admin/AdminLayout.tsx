@@ -15,7 +15,7 @@ const AdminLayout = () => {
 
   const shouldFullHeight = () => {
     const disableFullHeightRoutes = ['admin/file', '/admin/fle/*']
-    if (disableFullHeightRoutes.some(route => location.pathname.includes(route))) {
+    if (disableFullHeightRoutes.some((route) => location.pathname.includes(route))) {
       return false
     }
     return true
