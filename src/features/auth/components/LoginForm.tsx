@@ -4,30 +4,19 @@ import { Form } from '@/components/ui/form'
 import { InputField } from '@/components/ui/input-field'
 import { AUTH_CONFIG } from '@/constants/auth'
 import { ROUTE_PATHS } from '@/constants/path'
-import authApiService from '@/features/auth/services/authApiService'
 import { setFormErrorsFromApi } from '@/lib/form-utils'
 import reporter from '@/lib/reporter'
 import { ErrorType } from '@/types/common'
 import { z } from '@/validations/zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { GoogleOAuthProvider } from '@react-oauth/google'
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate, useSearchParams } from 'react-router-dom'
-import { useAuthStore } from '../store/authStore'
-import { AuthTokenResponse, User } from '../types'
+import { useLogin } from '@/features/auth/hooks/useAuth'
 import { loginSchema } from '../validations'
 import { LoginGoogle } from './LoginGoogle'
 
 export function LoginForm() {
-  const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
-  const [loading, setLoading] = useState({ submit: false })
-  const { setUser, setToken } = useAuthStore()
-
-  type LoginFormValues = z.infer<typeof loginSchema>
-
-  const form = useForm<LoginFormValues>({
+  const form = useForm<z.infer<typeof loginSchema>>({
     mode: 'onBlur',
     reValidateMode: 'onChange',
     resolver: zodResolver(loginSchema),
@@ -37,39 +26,20 @@ export function LoginForm() {
     },
   })
 
-  const {
-    handleSubmit,
-  } = form
+  const loginMutation = useLogin()
 
-  const onSubmit = async (data: LoginFormValues) => {
-    if (loading.submit) return
-    setLoading({ ...loading, submit: true })
+  const onSubmit = async (data: z.infer<typeof loginSchema>) => {
     try {
-      const payload = {
-        email: data.email,
-        password: data.password,
-      }
-      const authToken: AuthTokenResponse = await authApiService.login(payload)
-      setToken(authToken.accessToken)
-      const authUser: User = await authApiService.getProfile()
-      setUser(authUser)
-      const redirect = searchParams.get('redirect')
-      if (redirect) {
-        navigate(redirect, { replace: true })
-      } else {
-        navigate(ROUTE_PATHS.DASHBOARD, { replace: true })
-      }
+      await loginMutation.mutateAsync(data)
     } catch (error) {
       if (!setFormErrorsFromApi(form, error)) reporter.error(error as ErrorType)
-    } finally {
-      setLoading({ ...loading, submit: false })
     }
   }
 
   return (
     <>
       <Form {...form}>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <InputField
             label="Email"
             name="email"
@@ -107,8 +77,8 @@ export function LoginForm() {
               Forgot password?
             </InternalLink>
           </div>
-          <Button type="submit" className="w-full">
-            Login
+          <Button type="submit" className="w-full" disabled={loginMutation.isPending}>
+            {loginMutation.isPending ? 'Logging in...' : 'Login'}
           </Button>
           <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
             <p className="mx-4 mb-0 text-center font-semibold dark:text-neutral-200">OR</p>

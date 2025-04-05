@@ -1,4 +1,6 @@
 import { parseCookies } from 'nookies'
+// import Cookies from 'js-cookie'
+// Cookies.get(AUTH_CONFIG.userKey)
 
 export const getDataFromLS = (dataKey: string) => {
   if (parseCookies()[dataKey]) {

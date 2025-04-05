@@ -16,9 +16,16 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { SidebarMenuButton } from '@/components/ui/sidebar'
 import { useAuthStore } from '@/store/authStore'
+import { useLogout } from '@/features/auth/hooks/useAuth'
 
 export function DropdownUser() {
   const { user } = useAuthStore()
+  const logoutMutation = useLogout()
+
+  const handleLogout = () => {
+    logoutMutation.mutate()
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -58,9 +65,9 @@ export function DropdownUser() {
           </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={handleLogout} disabled={logoutMutation.isPending}>
           <LogOutIcon />
-          Log out
+          {logoutMutation.isPending ? 'Logging out...' : 'Log out'}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
