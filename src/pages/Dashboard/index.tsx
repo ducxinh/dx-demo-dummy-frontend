@@ -1,8 +1,19 @@
 import { Seo } from '@/components/common/Seo/Seo'
+import authApiService from '@/features/auth/services/authApiService'
 import { useTranslations } from '@/hooks/useTranslation'
+import { useEffect } from 'react'
 
 export function Dashboard() {
   const { t } = useTranslations('dashboard')
+
+  const fetchMe = async () => {
+    const me = await authApiService.getMe()
+    console.log('me', me)
+  }
+
+  useEffect(() => {
+    fetchMe()
+  }, [])
   return (
     <>
       <Seo title={t('title')} description={t('title')} />

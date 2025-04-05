@@ -4,27 +4,18 @@ import { Form } from '@/components/ui/form'
 import { InputField } from '@/components/ui/input-field'
 import { AUTH_CONFIG } from '@/constants/auth'
 import { ROUTE_PATHS } from '@/constants/path'
-import authApiService from '@/features/auth/services/authApiService'
 import { setFormErrorsFromApi } from '@/lib/form-utils'
 import reporter from '@/lib/reporter'
-import { useAuthStore } from '@/store/authStore'
 import { z } from '@/validations/zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { GoogleOAuthProvider } from '@react-oauth/google'
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
 import { signupSchema } from '../validations'
 import { LoginGoogle } from './LoginGoogle'
+import { useSignup } from '../hooks/useAuth'
 
 export function SignupForm() {
-  const navigate = useNavigate()
-  const [loading, setLoading] = useState({ submit: false })
-  const { setUser } = useAuthStore()
-
-  type SignupFormValues = z.infer<typeof signupSchema>
-
-  const form = useForm<SignupFormValues>({
+  const form = useForm<z.infer<typeof signupSchema>>({
     mode: 'onBlur',
     reValidateMode: 'onChange',
     resolver: zodResolver(signupSchema),
@@ -36,28 +27,14 @@ export function SignupForm() {
     },
   })
 
-  const onSubmit = async (data: SignupFormValues) => {
-    if (loading.submit) return
-    setLoading({ ...loading, submit: true })
+  const signupMutation = useSignup()
+
+  const onSubmit = async (data: z.infer<typeof signupSchema>) => {
     try {
-      const payload = {
-        name: data.name,
-        email: data.email,
-        password: data.password,
-      }
-      await authApiService.signup(payload)
-      // eslint-disable-next-line
-      setUser({ email: data.email, name: data.name } as any)
+      await signupMutation.mutateAsync(data)
       reporter.success('Signup successful! Please check your email to verify your account.')
-      if (AUTH_CONFIG.isVerifyAccountEmailCodeMethod()) {
-        navigate(ROUTE_PATHS.AUTH.VERIFY_ACCOUNT, { replace: true })
-      } else {
-        navigate(ROUTE_PATHS.AUTH.LOGIN, { replace: true })
-      }
     } catch (error) {
       if (!setFormErrorsFromApi(form, error)) reporter.error(error)
-    } finally {
-      setLoading({ ...loading, submit: false })
     }
   }
 
@@ -97,8 +74,8 @@ export function SignupForm() {
           required={true}
         />
 
-        <Button type="submit" className="w-full" disabled={loading.submit}>
-          Sign up
+        <Button type="submit" className="w-full" disabled={signupMutation.isPending}>
+          {signupMutation.isPending ? 'Signing up...' : 'Sign up'}
         </Button>
 
         <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">

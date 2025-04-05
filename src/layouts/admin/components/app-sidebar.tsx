@@ -14,6 +14,8 @@ import { NavProjects } from '@/layouts/admin/components/nav-projects'
 import { Bot, Frame, Map, PieChart, SquareTerminal } from 'lucide-react'
 import type * as React from 'react'
 import { NavUser } from './nav-user'
+import { InternalLink } from '@/components/common/InternalLink'
+import { ROUTE_PATHS } from '@/constants/path'
 
 // This is sample data.
 const data = {
@@ -94,7 +96,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
+              <InternalLink href={ROUTE_PATHS.DASHBOARD}>
                 <Image
                   src="/assets/images/logo.png"
                   alt="Site logo"
@@ -106,7 +108,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <span className="truncate font-semibold">{SITE_META.default.title}</span>
                   <span className="truncate text-xs hidden">Enterprise</span>
                 </div>
-              </a>
+              </InternalLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

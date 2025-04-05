@@ -12,7 +12,11 @@ const DropdownMessage = () => {
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!dropdown.current) return
-      if (!dropdownOpen || dropdown.current.contains(target as Node) || trigger.current?.contains(target as Node))
+      if (
+        !dropdownOpen ||
+        dropdown.current.contains(target as Node) ||
+        trigger.current?.contains(target as Node)
+      )
         return
       setDropdownOpen(false)
     }

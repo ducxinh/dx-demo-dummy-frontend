@@ -8,12 +8,10 @@ interface AuthContextType {
   onSignOut: (callback: VoidFunction) => void
 }
 
-
 const AuthContext = React.createContext<AuthContextType>(null!)
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const { user, setUser, setToken } = useAuthStore()
-
 
   const onSignIn = (newUser: User, callback: VoidFunction) => {
     setUser(newUser)

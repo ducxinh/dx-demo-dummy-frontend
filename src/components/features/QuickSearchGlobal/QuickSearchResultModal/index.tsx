@@ -93,15 +93,23 @@ export function QuickSearchResultModal({
 
     const resolveBaseMenuItems = () => {
       let items: QuickSearchItem[] = []
-  
+
       const adminMenu: Record<string, string | Record<string, string>> = ROUTE_PATHS.ADMIN
-  
+
       Object.keys(adminMenu).map((menuItemKey) => {
         const value = adminMenu[menuItemKey]
         if (
-          ['PAGES', 'CALENDAR', 'PROFILE', 'FORM', 'CHART', 'UI', 'AUTH', 'TASK', 'TABLES'].includes(
-            menuItemKey,
-          )
+          [
+            'PAGES',
+            'CALENDAR',
+            'PROFILE',
+            'FORM',
+            'CHART',
+            'UI',
+            'AUTH',
+            'TASK',
+            'TABLES',
+          ].includes(menuItemKey)
         ) {
           return null
         }
@@ -116,7 +124,7 @@ export function QuickSearchResultModal({
         }
         return menuItemKey
       })
-  
+
       return items
     }
 

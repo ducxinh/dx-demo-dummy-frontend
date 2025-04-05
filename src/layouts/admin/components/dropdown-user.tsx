@@ -1,9 +1,4 @@
-import {
-  BellIcon,
-  CreditCardIcon,
-  LogOutIcon,
-  UserCircleIcon
-} from 'lucide-react'
+import { BellIcon, CreditCardIcon, LogOutIcon, UserCircleIcon } from 'lucide-react'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
@@ -15,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { SidebarMenuButton } from '@/components/ui/sidebar'
-import { useAuthStore } from '@/store/authStore'
+import { useAuthStore } from '@/features/auth/store/authStore'
 import { useLogout } from '@/features/auth/hooks/useAuth'
 
 export function DropdownUser() {

@@ -8,8 +8,10 @@ import { persist } from 'zustand/middleware'
 type State = {
   token: string | null
   user: User | null
+  tempUser: User | null
   setToken: (token: string | null) => void
   setUser: (user: User | null) => void
+  setTempUser: (tempUser: User | null) => void
 }
 
 const COOKIE_CONFIG = { maxAge: 30 * 24 * 60 * 60, path: '/' }
@@ -18,7 +20,8 @@ export const useAuthStore = create(
   persist<State>(
     (set) => ({
       token: getDataFromLS(AUTH_CONFIG.tokenKey),
-      user: getDataFromLS(AUTH_CONFIG.userKey),
+      user: getDataFromLS(AUTH_CONFIG.userKey, true),
+      tempUser: getDataFromLS(AUTH_CONFIG.tempUserKey, true),
       setToken: (token) => {
         set({ token })
         if (token) {
@@ -37,6 +40,15 @@ export const useAuthStore = create(
         } else {
           destroyCookie(null, AUTH_CONFIG.userKey)
           clearDataLSItem(AUTH_CONFIG.userKey)
+        }
+      },
+      setTempUser: (tempUser) => {
+        set({ tempUser })
+        if (tempUser) {
+          setCookie(null, AUTH_CONFIG.tempUserKey, JSON.stringify(tempUser), COOKIE_CONFIG)
+          setDataLS(AUTH_CONFIG.tempUserKey, tempUser)
+        } else {
+          clearDataLSItem(AUTH_CONFIG.tempUserKey)
         }
       },
     }),

@@ -2,11 +2,13 @@ import { parseCookies } from 'nookies'
 // import Cookies from 'js-cookie'
 // Cookies.get(AUTH_CONFIG.userKey)
 
-export const getDataFromLS = (dataKey: string) => {
+export const getDataFromLS = (dataKey: string, parseJson = false) => {
   if (parseCookies()[dataKey]) {
+    console.log('parseCookies()[dataKey]', parseCookies()[dataKey])
     try {
-      return JSON.parse(parseCookies()[dataKey] as string)
+      return parseJson ? JSON.parse(parseCookies()[dataKey] as string) : parseCookies()[dataKey]
     } catch (error) {
+      console.log('error', error)
       console.error('Error parsing cookie data:', error)
       return undefined
     }

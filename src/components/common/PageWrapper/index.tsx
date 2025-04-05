@@ -1,4 +1,3 @@
-
 export function PageWrapper({ className, children }: React.HTMLAttributes<HTMLElement>) {
   const resolveClass = () => {
     const classList = [

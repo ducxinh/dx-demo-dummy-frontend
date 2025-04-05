@@ -23,7 +23,11 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!sidebar.current || !trigger.current) return
-      if (!sidebarOpen || sidebar.current.contains(target as Node) || trigger.current.contains(target as Node))
+      if (
+        !sidebarOpen ||
+        sidebar.current.contains(target as Node) ||
+        trigger.current.contains(target as Node)
+      )
         return
       // setSidebarOpen(false)
     }

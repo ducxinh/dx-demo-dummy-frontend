@@ -5,51 +5,30 @@ import { Button } from '@/components/ui/button'
 import { APP_CONFIG } from '@/constants/app'
 import { AUTH_CONFIG } from '@/constants/auth'
 import { ROUTE_PATHS } from '@/constants/path'
-import authApiService from '@/features/auth/services/authApiService'
-import reporter from '@/lib/reporter'
-import { useAuthStore } from '@/store/authStore'
-import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useAuthStore } from '@/features/auth/store/authStore'
+import { useEffect } from 'react'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
+import { useVerifyEmailWithToken } from '../hooks/useAuth'
 import { VerifyAccountWithCode } from './VerifyAccountWithCode'
 
 export function VerifyAccount() {
   const navigate = useNavigate()
   const { code } = useParams()
-  const { user } = useAuthStore()
-
-  const [loading, setLoading] = useState({
-    submit: false,
-    resend: false,
-  })
+  const { tempUser } = useAuthStore()
+  const verifyEmailWithToken = useVerifyEmailWithToken()
   const token = code
 
-  const verifyEmail = async () => {
-    if (loading.submit) return
-    setLoading((prev) => ({ ...prev, submit: true }))
-    try {
-      const payload = {
-        token: token as string,
-      }
-      await authApiService.verifyEmail(payload)
-      reporter.success('Email Verified Successfully')
-      navigate(ROUTE_PATHS.AUTH.LOGIN)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {
-      navigate(ROUTE_PATHS.AUTH.LOGIN)
-    } finally {
-      navigate(ROUTE_PATHS.AUTH.LOGIN)
-      setLoading((prev) => ({ ...prev, submit: false }))
-    }
-  }
 
   useEffect(() => {
     if (token) {
-      verifyEmail()
-    } else {
-      if (!user) navigate(ROUTE_PATHS.AUTH.LOGIN)
+      verifyEmailWithToken.mutate(token)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token])
+  
+  if (!token && !tempUser) {
+    return <Navigate to={ROUTE_PATHS.AUTH.LOGIN} replace />
+  }
 
   // If no token is provided and it's the code-based method, show the code entry form
   if (!token && AUTH_CONFIG.isVerifyAccountEmailCodeMethod()) {
@@ -82,7 +61,7 @@ export function VerifyAccount() {
               <div className="text-center space-y-4">
                 <p className="dark:text-white">
                   We&apos;ve sent a verification link to your email: <br />
-                  <span className="font-bold">{user?.email}</span>
+                  <span className="font-bold">{tempUser?.email}</span>
                 </p>
                 <p className="dark:text-white">
                   Please check your email and click on the verification link to complete the account
