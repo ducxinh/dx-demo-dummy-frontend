@@ -1,7 +1,7 @@
 import { ErrorType } from '@/types/common'
 import { ApiErrorResponse } from '@/types/error'
 import { AxiosError, isAxiosError } from 'axios'
-import { toast } from 'react-toastify'
+import { toast } from 'sonner'
 
 export const reporter = {
   error(error: ErrorType | AxiosError | string | unknown) {

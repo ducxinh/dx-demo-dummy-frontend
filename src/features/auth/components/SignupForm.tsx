@@ -8,12 +8,12 @@ import authApiService from '@/features/auth/services/authApiService'
 import { setFormErrorsFromApi } from '@/lib/form-utils'
 import reporter from '@/lib/reporter'
 import { useAuthStore } from '@/store/authStore'
+import { z } from '@/validations/zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
-import { z } from 'zod'
 import { signupSchema } from '../validations'
 import { LoginGoogle } from './LoginGoogle'
 
@@ -44,10 +44,8 @@ export function SignupForm() {
         name: data.name,
         email: data.email,
         password: data.password,
-        // email: '',
       }
       await authApiService.signup(payload)
-
       // eslint-disable-next-line
       setUser({ email: data.email, name: data.name } as any)
       reporter.success('Signup successful! Please check your email to verify your account.')

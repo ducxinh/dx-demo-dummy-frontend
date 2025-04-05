@@ -1,6 +1,6 @@
 import { AuthProvider } from '@/contexts/AuthContext'
 // import useTranslation from "@/hooks/useTranslation";
-import { router } from '@/lib/router'
+import { router } from '@/routes/router'
 import { RouterProvider } from 'react-router-dom'
 import { QueryProvider } from './providers/QueryProvider'
 

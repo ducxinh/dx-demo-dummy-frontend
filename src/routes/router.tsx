@@ -11,22 +11,7 @@ import { HomePage } from '@/pages/Home'
 import LoginPage from '@/pages/Login'
 import SignupPage from '@/pages/Signup'
 import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
-
-// const parseRoutes = (routeItems: RouteObject[]) => {
-//   return routeItems.map(adminRoute => {
-//     const { element: Element, children, ...rest } = adminRoute
-//     const childrenItems: any[] = children ? parseRoutes(children) : []
-//     return {
-//       ...rest,
-//       element: Element && (
-//         <LazyLoad>
-//           {Element}
-//         </LazyLoad>
-//       ),
-//       children: childrenItems,
-//     }
-//   })
-// }
+import adminRoutes from './admin'
 
 // Route configuration
 export const routes: RouteObject[] = [
@@ -59,14 +44,6 @@ export const routes: RouteObject[] = [
         path: ROUTE_PATHS.ABOUT,
         element: <About />,
       },
-      {
-        path: ROUTE_PATHS.DASHBOARD,
-        element: (
-          <AuthGuard>
-            <Dashboard />
-          </AuthGuard>
-        ),
-      },
     ],
   },
   {
@@ -77,10 +54,13 @@ export const routes: RouteObject[] = [
       </AuthGuard>
     ),
     children: [
-      // ...parseRoutes(adminRoutes)
+      {
+        path: ROUTE_PATHS.DASHBOARD,
+        element: <Dashboard />,
+      },
+      ...adminRoutes,
     ],
   },
-
   {
     path: '/404',
     element: <ErrorPage />,
@@ -91,5 +71,4 @@ export const routes: RouteObject[] = [
   },
 ]
 
-// Create router instance
 export const router = createBrowserRouter(routes)

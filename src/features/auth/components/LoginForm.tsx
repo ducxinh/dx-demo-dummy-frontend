@@ -46,7 +46,6 @@ export function LoginForm() {
   } = form
 
   const onSubmit = async (data: LoginFormValues) => {
-    console.log('xxx')
     if (loading.submit) return
     setLoading({ ...loading, submit: true })
     try {

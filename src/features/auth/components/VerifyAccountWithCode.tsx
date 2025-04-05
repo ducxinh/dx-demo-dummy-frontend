@@ -13,7 +13,7 @@ import { Image } from '@/components/common/Image'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { z } from 'zod'
+import { z } from '@/validations/zod'
 import { AuthTokenResponse, User } from '../types'
 import { verificationCodeSchema } from '../validations'
 
@@ -80,11 +80,11 @@ export function VerifyAccountWithCode() {
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
           >
             <Image
-              className="w-8 h-8 mr-2 rounded"
-              src="/static/images/logo.png"
-              alt="logo"
-              width={32}
-              height={32}
+              src="/assets/images/logo.png"
+              alt="Site logo"
+              className="mr-2 h-8 w-8"
+              width={50}
+              height={50}
             />
             {APP_CONFIG.appName}
           </InternalLink>

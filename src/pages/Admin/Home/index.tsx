@@ -1,7 +1,7 @@
 import { Seo } from '@/components/common/Seo/Seo'
 import { useTranslations } from '@/hooks/useTranslation'
 
-export function Dashboard() {
+export function AdminHome() {
   const { t } = useTranslations('dashboard')
   return (
     <>

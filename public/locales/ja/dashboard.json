@@ -1,26 +1,27 @@
 {
-    "welcome": "Welcome back, {{name}}",
-    "overview": "Overview",
-    "analytics": "Analytics",
-    "statistics": "Statistics",
-    "metrics": {
-      "today": "Today",
-      "thisWeek": "This Week",
-      "thisMonth": "This Month",
-      "thisYear": "This Year"
-    },
-    "widgets": {
-      "recentActivity": "Recent Activity",
-      "quickActions": "Quick Actions",
-      "performance": "Performance",
-      "upcomingEvents": "Upcoming Events",
-      "tasks": "Tasks",
-      "notifications": "Notifications"
-    },
-    "charts": {
-      "users": "User Growth",
-      "revenue": "Revenue",
-      "visits": "Site Visits",
-      "engagement": "Engagement"
-    }
+  "title": "Dashboard",
+  "welcome": "Welcome back, {{name}}",
+  "overview": "Overview",
+  "analytics": "Analytics",
+  "statistics": "Statistics",
+  "metrics": {
+    "today": "Today",
+    "thisWeek": "This Week",
+    "thisMonth": "This Month",
+    "thisYear": "This Year"
+  },
+  "widgets": {
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions",
+    "performance": "Performance",
+    "upcomingEvents": "Upcoming Events",
+    "tasks": "Tasks",
+    "notifications": "Notifications"
+  },
+  "charts": {
+    "users": "User Growth",
+    "revenue": "Revenue",
+    "visits": "Site Visits",
+    "engagement": "Engagement"
   }
+}

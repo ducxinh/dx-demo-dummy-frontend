@@ -12,6 +12,7 @@ i18next
   .use(LanguageDetector) // Detect user language
   .use(initReactI18next) // Integrate with react-i18next
   .init({
+    ns: ['auth', 'zod', 'common'],
     fallbackLng: 'en', // Fallback language
     supportedLngs,
     debug: import.meta.env.NODE_ENV !== 'production' && import.meta.env.NODE_ENV !== 'test',
