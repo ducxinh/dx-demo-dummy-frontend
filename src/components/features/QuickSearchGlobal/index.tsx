@@ -21,7 +21,7 @@ export function QuickSearchGlobal() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
     }
-  }, [])
+  }, [openModal])
 
   return (
     <div className="">

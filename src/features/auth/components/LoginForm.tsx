@@ -8,6 +8,7 @@ import authApiService from '@/features/auth/services/authApiService'
 import { setFormErrorsFromApi } from '@/lib/form-utils'
 import reporter from '@/lib/reporter'
 import { ErrorType } from '@/types/common'
+import { z } from '@/validations/zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { useState } from 'react'
@@ -17,7 +18,6 @@ import { useAuthStore } from '../store/authStore'
 import { AuthTokenResponse, User } from '../types'
 import { loginSchema } from '../validations'
 import { LoginGoogle } from './LoginGoogle'
-import { z } from '@/validations/zod'
 
 export function LoginForm() {
   const navigate = useNavigate()
@@ -39,10 +39,6 @@ export function LoginForm() {
 
   const {
     handleSubmit,
-    // register,
-    // watch,
-    // clearErrors,
-    formState: {},
   } = form
 
   const onSubmit = async (data: LoginFormValues) => {

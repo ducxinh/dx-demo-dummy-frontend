@@ -9,14 +9,14 @@ const DropdownUser = () => {
   const auth = useAuth()
   const navigate = useNavigate()
 
-  const trigger = useRef<any>(null)
-  const dropdown = useRef<any>(null)
+  const trigger = useRef<HTMLAnchorElement>(null)
+  const dropdown = useRef<HTMLDivElement>(null)
 
   // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!dropdown.current) return
-      if (!dropdownOpen || dropdown.current.contains(target) || trigger.current.contains(target))
+      if (!dropdownOpen || dropdown.current.contains(target as Node) || trigger.current?.contains(target as Node))
         return
       setDropdownOpen(false)
     }

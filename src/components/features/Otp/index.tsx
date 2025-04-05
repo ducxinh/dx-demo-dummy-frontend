@@ -11,7 +11,7 @@ export default function Otp(params: Props) {
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]) // Array of refs for each input field
   useEffect(() => {
     params.onChange(otp.join(''))
-  }, [otp])
+  }, [otp, params])
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (

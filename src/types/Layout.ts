@@ -1,7 +1,7 @@
 export interface IBaseMenuItem {
   label: string
   to: string
-  menuIcon?: any
+  menuIcon?: React.ReactNode
 }
 
 export interface IMenuItem extends IBaseMenuItem {

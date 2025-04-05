@@ -1,17 +1,17 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Fragment, ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 import { FiXCircle } from 'react-icons/fi'
 
 type ModalType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
 
 interface ModalProps {
-  title: any
+  title: ReactNode
   isOpen: boolean
   onClose: () => void
   size?: ModalType
   className?: string
-  children: any
+  children: ReactNode
 }
 
 export function Modal(props: ModalProps) {

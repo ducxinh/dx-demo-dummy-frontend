@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Fragment, ReactNode } from 'react'
 import { Button } from '../../button'
 import './index.css'
 import { FiXCircle } from 'react-icons/fi'
@@ -7,12 +7,12 @@ import { cn } from '@/lib/utils'
 
 type ModalType = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 interface ModalProps {
-  title: any
+  title: ReactNode
   isOpen: boolean
   onClose: () => void
   size?: ModalType
   className?: string
-  children: any
+  children: ReactNode
   btnOkLabel?: string
   btnCancelLabel?: string
   handleClose?: () => void
@@ -21,11 +21,9 @@ interface ModalProps {
 
 export function ModalScroll(props: ModalProps) {
   const {
-    className = '',
     title,
     isOpen,
     onClose,
-    size = 'md',
     children,
     btnOkLabel = 'Ok',
     btnCancelLabel = 'Cancel',

@@ -1,6 +1,7 @@
 import { Language } from '@/i18n/config'
 import { I18nNamespace } from '@/i18n/types/i18n'
 import { useTranslation, UseTranslationOptions } from 'react-i18next'
+import { i18n } from 'i18next'
 
 // Define the type for the useTranslation hook
 type UseTranslationType = {
@@ -9,7 +10,7 @@ type UseTranslationType = {
     options?: UseTranslationOptions<K>,
   ): {
     t: (key: string) => string
-    i18n: any
+    i18n: i18n
     ready: boolean
   }
 }

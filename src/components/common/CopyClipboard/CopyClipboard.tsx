@@ -1,4 +1,4 @@
-import { cn } from '@/utils/helpers'
+import { cn } from '@/lib/utils'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FiCopy } from 'react-icons/fi'
 import { toast } from 'react-toastify'
@@ -6,7 +6,7 @@ import { toast } from 'react-toastify'
 interface CopyClipboardProps {
   text: string
   onCopy?: () => void
-  children?: any
+  children?: React.ReactNode
   showIcon?: boolean
   className?: string
 }

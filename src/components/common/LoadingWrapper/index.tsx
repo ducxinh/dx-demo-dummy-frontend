@@ -1,7 +1,7 @@
 // import styled from 'styled-components/macro'
 import './index.css'
 
-export function LoadingWrapper({ children }: { children: any }) {
+export function LoadingWrapper({ children }: { children: React.ReactNode }) {
   return <div className="loading-wrapper">{children}</div>
 }
 

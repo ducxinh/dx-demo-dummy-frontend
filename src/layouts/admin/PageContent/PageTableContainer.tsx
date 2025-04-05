@@ -1,7 +1,7 @@
 import { cn } from '@/lib/utils'
 import React from 'react'
 
-export function PageTableContainer({ children }: { children: any | React.ReactNode }) {
+export function PageTableContainer({ children }: { children: React.ReactNode }) {
   return (
     <section
       className={cn(

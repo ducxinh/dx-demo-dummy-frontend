@@ -16,14 +16,14 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
-  const trigger = useRef<any>(null)
-  const sidebar = useRef<any>(null)
+  const trigger = useRef<HTMLButtonElement>(null)
+  const sidebar = useRef<HTMLDivElement>(null)
 
   // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!sidebar.current || !trigger.current) return
-      if (!sidebarOpen || sidebar.current.contains(target) || trigger.current.contains(target))
+      if (!sidebarOpen || sidebar.current.contains(target as Node) || trigger.current.contains(target as Node))
         return
       // setSidebarOpen(false)
     }
@@ -91,7 +91,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                       <MenuItem
                         label={label}
                         to={to}
-                        menuIcon={menuIcon}
+                        menuIcon={menuIcon || <DashboardIcon />}
                         sidebarOpen={sidebarOpen}
                       />
                     </li>

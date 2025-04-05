@@ -2,25 +2,33 @@ import { AUTH_CONFIG } from '@/constants/auth'
 import Cookies from 'js-cookie'
 import React from 'react'
 
+interface User {
+  id: string
+  email: string
+  name?: string
+  role?: string
+}
+
 interface AuthContextType {
-  user: any
-  onSignIn: (user: any, callback: VoidFunction) => void
+  user: User | null
+  onSignIn: (user: User, callback: VoidFunction) => void
   onSignOut: (callback: VoidFunction) => void
 }
 
-const resolveCookieAuthUser = () => {
+const resolveCookieAuthUser = (): User | null => {
   const cacheUser = Cookies.get(AUTH_CONFIG.userKey)
   if (cacheUser) {
     return JSON.parse(cacheUser)
   }
-  return undefined
+  return null
 }
+
 const AuthContext = React.createContext<AuthContextType>(null!)
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = React.useState<any>(resolveCookieAuthUser())
+  const [user, setUser] = React.useState<User | null>(resolveCookieAuthUser())
 
-  const onSignIn = (newUser: string, callback: VoidFunction) => {
+  const onSignIn = (newUser: User, callback: VoidFunction) => {
     setUser(newUser)
     callback()
   }

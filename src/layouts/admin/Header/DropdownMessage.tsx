@@ -5,14 +5,14 @@ import UserOne from '@/assets/images/user/user-ducxinh-01.png'
 const DropdownMessage = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false)
 
-  const trigger = useRef<any>(null)
-  const dropdown = useRef<any>(null)
+  const trigger = useRef<HTMLAnchorElement>(null)
+  const dropdown = useRef<HTMLDivElement>(null)
 
   // close on click outside
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!dropdown.current) return
-      if (!dropdownOpen || dropdown.current.contains(target) || trigger.current.contains(target))
+      if (!dropdownOpen || dropdown.current.contains(target as Node) || trigger.current?.contains(target as Node))
         return
       setDropdownOpen(false)
     }
@@ -31,8 +31,7 @@ const DropdownMessage = () => {
   })
 
   return (
-    // eslint-disable-next-line react/no-unknown-property
-    <li className="relative" x-data="{ dropdownOpen: false, notifying: true }">
+    <li className="relative">
       <Link
         ref={trigger}
         onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -143,7 +142,7 @@ const DropdownMessage = () => {
 
               <div>
                 <h6 className="text-sm font-medium text-black dark:text-white">Cody Fisher</h6>
-                <p className="text-sm">I’m waiting for you response!</p>
+                <p className="text-sm">I'm waiting for you response!</p>
                 <p className="text-xs">5days ago</p>
               </div>
             </Link>

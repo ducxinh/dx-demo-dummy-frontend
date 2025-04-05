@@ -1,10 +1,11 @@
 import { cn } from '@/lib/utils'
 import { Link, useLocation } from 'react-router-dom'
+import React from 'react'
 
 interface MenuItemProps {
   label: string
   to: string
-  menuIcon: any
+  menuIcon: React.ReactNode
   basePath?: string
   sidebarOpen?: boolean
 }

@@ -1,5 +1,5 @@
 import { Modal } from '@/components/ui/Modal'
-import { cn } from '@/utils/helpers'
+import { cn } from '@/lib/utils'
 import React, { useState, useEffect, useRef } from 'react'
 
 interface Props extends React.HTMLAttributes<HTMLImageElement> {

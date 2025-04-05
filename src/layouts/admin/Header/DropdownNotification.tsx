@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 const DropdownNotification = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false)
 
-  const trigger = useRef<any>(null)
-  const dropdown = useRef<any>(null)
+  const trigger = useRef<HTMLAnchorElement>(null)
+  const dropdown = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const clickHandler = ({ target }: MouseEvent) => {
       if (!dropdown.current) return
-      if (!dropdownOpen || dropdown.current.contains(target) || trigger.current.contains(target))
+      if (!dropdownOpen || dropdown.current.contains(target as Node) || trigger.current?.contains(target as Node))
         return
       setDropdownOpen(false)
     }

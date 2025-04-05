@@ -1,11 +1,9 @@
 import { Seo } from '@/components/common/Seo/Seo'
 import { Modal } from '@/components/ui/Modal'
 import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
 
 export function GlobalSetting() {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-  const { t } = useTranslation()
 
   return (
     <>

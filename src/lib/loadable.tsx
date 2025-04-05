@@ -23,8 +23,6 @@ export const lazyLoad = <
 
   const LazyComponent = lazy(lazyFactory)
 
-  /* eslint-disable-next-line func-names */
-  /* eslint-disable-next-line react/display-name */
   return function (props: React.ComponentProps<U>): JSX.Element {
     return (
       <Suspense fallback={opts.fallback!}>

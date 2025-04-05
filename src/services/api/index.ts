@@ -22,8 +22,8 @@ async function onRequest(config: InternalAxiosRequestConfig): Promise<InternalAx
       const token = cookies[AUTH_CONFIG.tokenKey]
       config.headers.Authorization = `Bearer ${token}`
     }
-  } catch {
-    // Silently handle error
+  } catch (error) {
+    console.error('Error setting authorization header:', error)
   }
 
   return config
@@ -56,9 +56,9 @@ if (typeof window !== 'undefined' && window.localStorage.getItem(AUTH_CONFIG.tok
     try {
       const authToken = JSON.parse(window.localStorage.getItem(AUTH_CONFIG.tokenKey) || '{}')
       setHeader(authToken)
-      // disable eslint
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    } catch (error) {}
+    } catch (error) {
+      console.error('Error parsing auth token:', error)
+    }
   }
 }
 

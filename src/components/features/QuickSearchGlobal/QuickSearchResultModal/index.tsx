@@ -2,7 +2,7 @@ import { Input } from '@/components/ui/input'
 import { ModalScroll } from '@/components/ui/Modal/ModalScroll'
 import { ROUTE_PATHS } from '@/constants/path'
 import { cn } from '@/lib/utils'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { InternalLink } from '../../../common/InternalLink'
 import { QuickSearchItem } from '../types'
@@ -24,7 +24,7 @@ export function QuickSearchResultModal({
   const [selectedEnter, setSelectedEnter] = useState<number>(0)
   const [userAction, setUserAction] = useState<{ name: string; id: number }>()
 
-  const handleUserAction = () => {
+  const handleUserAction = useCallback(() => {
     if (!userAction) return
     if (userAction.name === 'ArrowUp') {
       setsSelectedIndex((previous) => {
@@ -41,13 +41,13 @@ export function QuickSearchResultModal({
         setSelectedEnter((previous) => previous + 1)
       }
     }
-  }
+  }, [userAction, isOpen])
 
   useEffect(() => {
     if (userAction) {
       handleUserAction()
     }
-  }, [userAction])
+  }, [userAction, handleUserAction])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -73,6 +73,57 @@ export function QuickSearchResultModal({
     if (selectedIndex >= 0) {
       setsSelectedIndex(-1)
     }
+  }, [formData.qsKeyword, selectedIndex])
+
+  const getMenuItems = useCallback(() => {
+    const resolveMenuByObj = (obj: Record<string, string>, prefix?: string) => {
+      const items: QuickSearchItem[] = []
+      Object.keys(obj).map((key) => {
+        const value = obj[key]
+        // ignore dynamic route
+        if (typeof value === 'string' && !value.includes(':')) {
+          items.push({
+            name: prefix ? `${prefix} ${key}` : '',
+            path: value,
+          })
+        }
+      })
+      return items
+    }
+
+    const resolveBaseMenuItems = () => {
+      let items: QuickSearchItem[] = []
+  
+      const adminMenu: Record<string, string | Record<string, string>> = ROUTE_PATHS.ADMIN
+  
+      Object.keys(adminMenu).map((menuItemKey) => {
+        const value = adminMenu[menuItemKey]
+        if (
+          ['PAGES', 'CALENDAR', 'PROFILE', 'FORM', 'CHART', 'UI', 'AUTH', 'TASK', 'TABLES'].includes(
+            menuItemKey,
+          )
+        ) {
+          return null
+        }
+        if (typeof value === 'string') {
+          items.push({
+            name: menuItemKey,
+            path: value,
+          })
+        }
+        if (typeof value === 'object') {
+          items = [...items, ...resolveMenuByObj(value as Record<string, string>, menuItemKey)]
+        }
+        return menuItemKey
+      })
+  
+      return items
+    }
+
+    const menus = resolveBaseMenuItems().filter((item) =>
+      item.name.toLocaleLowerCase().includes(formData.qsKeyword.toLocaleLowerCase()),
+    )
+    return menus
   }, [formData.qsKeyword])
 
   useEffect(() => {
@@ -85,7 +136,7 @@ export function QuickSearchResultModal({
       })
       onClose()
     }
-  }, [selectedEnter])
+  }, [selectedEnter, selectedIndex, navigate, getMenuItems, formData, onClose])
 
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const name = event.target.name
@@ -95,57 +146,6 @@ export function QuickSearchResultModal({
       ...formData,
       [name]: value,
     })
-  }
-
-  const resolveMenuByObj = (obj: { [key: string]: any }, prefix?: string) => {
-    const items: QuickSearchItem[] = []
-    Object.keys(obj).map((key) => {
-      const value = obj[key]
-      // ignore dynamic route
-      if (typeof value === 'string' && !value.includes(':')) {
-        items.push({
-          name: prefix ? `${prefix} ${key}` : '',
-          path: value,
-        })
-      }
-    })
-    return items
-  }
-
-  const resolveBaseMenuItems = () => {
-    let items: QuickSearchItem[] = []
-
-    const adminMenu: { [key: string]: any } = ROUTE_PATHS.ADMIN
-
-    Object.keys(adminMenu).map((menuItemKey) => {
-      const value = adminMenu[menuItemKey]
-      if (
-        ['PAGES', 'CALENDAR', 'PROFILE', 'FORM', 'CHART', 'UI', 'AUTH', 'TASK', 'TABLES'].includes(
-          menuItemKey,
-        )
-      ) {
-        return null
-      }
-      if (typeof value === 'string') {
-        items.push({
-          name: menuItemKey,
-          path: value,
-        })
-      }
-      if (typeof value === 'object') {
-        items = [...items, ...resolveMenuByObj(value, menuItemKey)]
-      }
-      return menuItemKey
-    })
-
-    return items
-  }
-
-  const getMenuItems = () => {
-    const menus = resolveBaseMenuItems().filter((item) =>
-      item.name.toLocaleLowerCase().includes(formData.qsKeyword.toLocaleLowerCase()),
-    )
-    return menus
   }
 
   return (

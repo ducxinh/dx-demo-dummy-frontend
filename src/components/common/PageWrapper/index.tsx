@@ -1,6 +1,5 @@
-interface PageWrapperProps extends React.HTMLAttributes<HTMLElement> {}
 
-export function PageWrapper({ className, children }: PageWrapperProps) {
+export function PageWrapper({ className, children }: React.HTMLAttributes<HTMLElement>) {
   const resolveClass = () => {
     const classList = [
       'rounded-sm border border-stroke bg-box shadow-default',

@@ -8,13 +8,13 @@ import { cn } from '@/lib/utils'
 interface MenuSubItem {
   label: string
   to: string
-  menuIcon?: any
+  menuIcon?: React.ReactNode
 }
 interface MenuItemProps {
   basePath?: string
   sidebarOpen: boolean
   setSidebarOpen: (value: boolean) => void
-  menuIcon: any
+  menuIcon?: React.ReactNode
   label: string
   subItems: MenuSubItem[]
 }
@@ -49,7 +49,11 @@ export function MenuItemNested({
                 )}
                 onClick={(e) => {
                   e.preventDefault()
-                  sidebarOpen ? handleClick() : setSidebarOpen(true)
+                  if (sidebarOpen) {
+                    handleClick()
+                  } else {
+                    setSidebarOpen(true)
+                  }
                 }}
               >
                 {menuIcon}
@@ -66,7 +70,7 @@ export function MenuItemNested({
                         className="group relative flex items-center gap-2.5 rounded-md px-4 font-medium text-bodydark2 duration-300 ease-in-out hover:text-white"
                         activeClassName="!text-white"
                       >
-                        {subItem.menuIcon && <>{subItem.menuIcon}</>}
+                        {subItem.menuIcon}
                         {subItem.label}
                       </NavLink>
                     </li>

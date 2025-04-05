@@ -8,7 +8,7 @@ export function PageContent({
   children,
 }: {
   fullHeight: boolean
-  children: any | React.ReactNode
+  children: React.ReactNode
 }) {
   const topNavigationHeight = 56
   const topNavigationHeightMobile = 60
