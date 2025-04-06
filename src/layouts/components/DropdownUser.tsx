@@ -4,7 +4,7 @@ import { Fragment } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/contexts/AuthContext'
 
-export function AccountMenu() {
+export function DropdownUser() {
   const auth = useAuth()
   const navigate = useNavigate()
   const menuItems = [

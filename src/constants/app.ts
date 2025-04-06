@@ -1,15 +1,15 @@
 export const APP_CONFIG = {
-  appName: import.meta.env.VITE_APP_NAME,
-  appEnv: import.meta.env.VITE_APP_ENV,
-  appUrl: import.meta.env.VITE_APP_URL,
-  api: {
-    url: import.meta.env.VITE_APP_API_URL,
-    wsUrl: import.meta.env.VITE_APP_WS_URL,
+  APP_NAME: import.meta.env.VITE_APP_NAME,
+  APP_ENV: import.meta.env.VITE_APP_ENV,
+  APP_URL: import.meta.env.VITE_APP_URL,
+  API: {
+    URL: import.meta.env.VITE_APP_API_URL,
+    WS_URL: import.meta.env.VITE_APP_WS_URL,
   },
 }
 
 export const SITE_CONFIG = {
-  title: import.meta.env.VITE_APP_TITLE || 'Template Starter',
-  description: import.meta.env.VITE_APP_DESCRIPTION || 'Template Starter',
-  url: import.meta.env.VITE_APP_URL || 'https://example.com',
+  TITLE: import.meta.env.VITE_APP_TITLE || 'Template Starter',
+  DESCRIPTION: import.meta.env.VITE_APP_DESCRIPTION || 'Template Starter',
+  URL: import.meta.env.VITE_APP_URL || 'https://example.com',
 }

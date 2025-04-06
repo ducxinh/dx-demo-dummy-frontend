@@ -1,12 +1,12 @@
 import { parseCookies } from 'nookies'
 // import Cookies from 'js-cookie'
-// Cookies.get(AUTH_CONFIG.userKey)
+// Cookies.get(AUTH_CONFIG.USER_KEY)
 
 export const getDataFromLS = (dataKey: string, parseJson = false) => {
   if (parseCookies()[dataKey]) {
-    console.log('parseCookies()[dataKey]', parseCookies()[dataKey])
     try {
-      return parseJson ? JSON.parse(parseCookies()[dataKey] as string) : parseCookies()[dataKey]
+      const value = parseCookies()[dataKey] as string
+      return parseJson ? JSON.parse(value) : value
     } catch (error) {
       console.log('error', error)
       console.error('Error parsing cookie data:', error)
@@ -16,7 +16,8 @@ export const getDataFromLS = (dataKey: string, parseJson = false) => {
   if (typeof window !== 'undefined') {
     if (window.localStorage.getItem(dataKey)) {
       try {
-        return JSON.parse(window.localStorage.getItem(dataKey) as string)
+        const value = window.localStorage.getItem(dataKey)
+        return parseJson ? JSON.parse(value as string) : value
       } catch (error) {
         console.error('Error parsing localStorage data:', error)
         return undefined

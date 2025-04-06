@@ -12,6 +12,7 @@ import {
 import { SidebarMenuButton } from '@/components/ui/sidebar'
 import { useAuthStore } from '@/features/auth/store/authStore'
 import { useLogout } from '@/features/auth/hooks/useAuth'
+import { AccountName } from '@/components/common/AccountName'
 
 export function DropdownUser() {
   const { user } = useAuthStore()
@@ -20,6 +21,7 @@ export function DropdownUser() {
   const handleLogout = () => {
     logoutMutation.mutate()
   }
+  if (!user) return null
 
   return (
     <DropdownMenu>
@@ -28,14 +30,16 @@ export function DropdownUser() {
           size="lg"
           className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
         >
-          <Avatar className="h-8 w-8 rounded-lg grayscale">
+          <div className="grid flex-1 text-left text-sm leading-tight">
+            <span className="truncate font-medium">
+              <AccountName user={user} />
+            </span>
+            <span className="hidden truncate text-xs text-muted-foreground">{user?.email}</span>
+          </div>
+          <Avatar className="h-10 w-10 md:h-12 md:w-12 rounded-lg grayscale">
             <AvatarImage src="/assets/images/default-avatar.png" alt={user?.name} />
             <AvatarFallback className="rounded-lg">CN</AvatarFallback>
           </Avatar>
-          <div className="grid flex-1 text-left text-sm leading-tight">
-            <span className="truncate font-medium">{user?.username}</span>
-            <span className="truncate text-xs text-muted-foreground">{user?.email}</span>
-          </div>
         </SidebarMenuButton>
       </DropdownMenuTrigger>
       <DropdownMenuContent

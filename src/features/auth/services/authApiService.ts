@@ -22,23 +22,22 @@ export const authApiService = {
   async login(payload: LoginPayload): Promise<AuthTokenResponse> {
     return apiClient.post(`${this.path}/login`, payload)
   },
+  async loginCallback(socialProvider: string, payload: { idToken: string }): Promise<AuthToken> {
+    return apiClient.post(`${this.path}/${socialProvider}/callback`, payload)
+  },
   getSocialLoginUrl(socialType: string) {
     const version: number = 1
     if (version === 2) {
       if (typeof window !== 'undefined') {
         const redirectUri = `redirect_uri=${window.location.origin}/auth/login/callback?provider=google`
-        return `${APP_CONFIG.api.url}/auth/${socialType}/v2?${redirectUri}`
+        return `${APP_CONFIG.API.URL}/auth/${socialType}/v2?${redirectUri}`
       }
     }
-    return `${APP_CONFIG.api.url}/auth/${socialType}`
+    return `${APP_CONFIG.API.URL}/auth/${socialType}`
   },
 
   async getAuthToken(provider: 'google', code: string): Promise<AuthTokenProviderResponse> {
     return apiClient.post(`${this.path}/${provider}/token`, { code })
-  },
-
-  async loginCallback(socialProvider: string, payload: { idToken: string }): Promise<AuthToken> {
-    return apiClient.post(`${this.path}/${socialProvider}/callback`, payload)
   },
 
   async logout(): Promise<void> {

@@ -1,9 +1,13 @@
-import { InternalLink } from '@/components/common/InternalLink'
+'use client'
+import { InternalLink as Link } from '@/components/common/InternalLink'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
 import { InputField } from '@/components/ui/input-field'
 import { AUTH_CONFIG } from '@/constants/auth'
 import { ROUTE_PATHS } from '@/constants/path'
+import { LoginGoogle } from '@/features/auth/components/LoginGoogle'
+import { useLogin } from '@/features/auth/hooks/useAuth'
+import { loginSchema } from '@/features/auth/validations'
 import { setFormErrorsFromApi } from '@/lib/form-utils'
 import reporter from '@/lib/reporter'
 import { ErrorType } from '@/types/common'
@@ -11,9 +15,6 @@ import { z } from '@/validations/zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { useForm } from 'react-hook-form'
-import { useLogin } from '@/features/auth/hooks/useAuth'
-import { loginSchema } from '../validations'
-import { LoginGoogle } from './LoginGoogle'
 
 export function LoginForm() {
   const form = useForm<z.infer<typeof loginSchema>>({
@@ -70,12 +71,12 @@ export function LoginForm() {
                 </label>
               </div>
             </div>
-            <InternalLink
+            <Link
               href="/"
               className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
             >
               Forgot password?
-            </InternalLink>
+            </Link>
           </div>
           <Button type="submit" className="w-full" disabled={loginMutation.isPending}>
             {loginMutation.isPending ? 'Logging in...' : 'Login'}
@@ -85,18 +86,18 @@ export function LoginForm() {
           </div>
 
           <div className="">
-            <GoogleOAuthProvider clientId={AUTH_CONFIG.google.clientId as string}>
+            <GoogleOAuthProvider clientId={AUTH_CONFIG.GOOGLE.CLIENT_ID as string}>
               <LoginGoogle />
             </GoogleOAuthProvider>
           </div>
           <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-            Don't have an account yet?{' '}
-            <InternalLink
+            Don&apos;t have an account yet?{' '}
+            <Link
               href={ROUTE_PATHS.AUTH.SIGNUP}
               className="font-medium text-primary-600 hover:underline dark:text-primary-500"
             >
               Sign up
-            </InternalLink>
+            </Link>
           </p>
         </form>
       </Form>

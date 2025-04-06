@@ -12,11 +12,11 @@ export const AUTHENTICATE_TEMP_USER_KEY = 'NixLoggerIdentityServiceProvider.serv
 export const VERIFY_ACCOUNT_METHOD: VerifyAccountEmailMethod = 'code'
 
 export const AUTH_CONFIG = {
-  tokenKey: import.meta.env.AUTHENTICATE_TOKEN_KEY || AUTHENTICATE_TOKEN_KEY,
-  userKey: import.meta.env.AUTHENTICATE_USER_KEY || AUTHENTICATE_USER_KEY,
-  tempUserKey: import.meta.env.AUTHENTICATE_TEMP_USER_KEY || AUTHENTICATE_TEMP_USER_KEY,
-  google: {
-    clientId: import.meta.env.VITE_APP_GOOGLE_CLIENT_ID,
+  TOKEN_KEY: import.meta.env.AUTHENTICATE_TOKEN_KEY || AUTHENTICATE_TOKEN_KEY,
+  USER_KEY: import.meta.env.AUTHENTICATE_USER_KEY || AUTHENTICATE_USER_KEY,
+  TEMP_USER_KEY: import.meta.env.AUTHENTICATE_TEMP_USER_KEY || AUTHENTICATE_TEMP_USER_KEY,
+  GOOGLE: {
+    CLIENT_ID: import.meta.env.VITE_APP_GOOGLE_CLIENT_ID,
   },
   isVerifyAccountEmailCodeMethod: () => VERIFY_ACCOUNT_METHOD === 'code',
 }

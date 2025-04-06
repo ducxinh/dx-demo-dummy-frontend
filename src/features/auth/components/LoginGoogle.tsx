@@ -1,10 +1,13 @@
+'use client'
 import React, { useEffect, useState } from 'react'
 // useGoogleOneTapLogin
 import { GoogleIcon } from '@/components/icons/GoogleIcon'
 import authApiService from '@/features/auth/services/authApiService'
 import { GoogleLogin, useGoogleLogin } from '@react-oauth/google'
 // import Cookies from 'js-cookie'
-import { useGoogleLogin as useGoogleLoginHook } from '../hooks/useAuth'
+import reporter from '@/lib/reporter'
+import { ErrorType } from '@/types/common'
+import { useGoogleLogin as useGoogleLoginHook } from '@/features/auth/hooks/useAuth'
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactElement | React.ReactElement[] | string | number
@@ -26,8 +29,12 @@ export function LoginGoogle(props: SectionProps) {
   }
 
   // todo define types
-  const handleResponseAuthFlow = (tokenResponse: { code: string }) => {
-    googleLoginMutation.mutate(tokenResponse.code)
+  const handleResponseAuthFlow = async (tokenResponse: { code: string }) => {
+    try {
+      await googleLoginMutation.mutateAsync(tokenResponse.code)
+    } catch (error) {
+      reporter.error(error as ErrorType)
+    }
   }
 
   const login = useGoogleLogin({

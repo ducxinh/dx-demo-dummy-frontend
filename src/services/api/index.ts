@@ -4,7 +4,7 @@ import { getDataFromLS } from '@/lib/store'
 import axios, { AxiosError, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 
 const apiClient = axios.create({
-  baseURL: APP_CONFIG.api.url,
+  baseURL: APP_CONFIG.API.URL,
   headers: {
     'Content-type': 'application/json',
     Accept: 'application/json',
@@ -17,7 +17,7 @@ function onResponse(response: AxiosResponse): AxiosResponse {
 
 async function onRequest(config: InternalAxiosRequestConfig): Promise<InternalAxiosRequestConfig> {
   try {
-    const token = getDataFromLS(AUTH_CONFIG.tokenKey)
+    const token = getDataFromLS(AUTH_CONFIG.TOKEN_KEY)
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }
@@ -46,14 +46,14 @@ export const setHeader = (authToken: { token_type: string; access_token: string 
   apiClient.defaults.headers.common.Authorization = `${authToken.token_type} ${authToken.access_token}`
 
   if (typeof window !== 'undefined') {
-    window.localStorage.setItem(AUTH_CONFIG.tokenKey, JSON.stringify(authToken))
+    window.localStorage.setItem(AUTH_CONFIG.TOKEN_KEY, JSON.stringify(authToken))
   }
 }
 
-// if (typeof window !== 'undefined' && window.localStorage.getItem(AUTH_CONFIG.tokenKey)) {
-//   if (window.localStorage.getItem(AUTH_CONFIG.tokenKey)) {
+// if (typeof window !== 'undefined' && window.localStorage.getItem(AUTH_CONFIG.TOKEN_KEY)) {
+//   if (window.localStorage.getItem(AUTH_CONFIG.TOKEN_KEY)) {
 //     try {
-//       const authToken = JSON.parse(window.localStorage.getItem(AUTH_CONFIG.tokenKey) || '{}')
+//       const authToken = JSON.parse(window.localStorage.getItem(AUTH_CONFIG.TOKEN_KEY) || '{}')
 //       setHeader(authToken)
 //     } catch (error) {
 //       console.error('Error parsing auth token:', error)

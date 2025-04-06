@@ -1,4 +1,5 @@
-import { InternalLink } from '@/components/common/InternalLink'
+'use client'
+import { InternalLink as Link } from '@/components/common/InternalLink'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
 import { InputField } from '@/components/ui/input-field'
@@ -10,9 +11,9 @@ import { z } from '@/validations/zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { useForm } from 'react-hook-form'
-import { signupSchema } from '../validations'
-import { LoginGoogle } from './LoginGoogle'
-import { useSignup } from '../hooks/useAuth'
+import { signupSchema } from '@/features/auth/validations'
+import { LoginGoogle } from '@/features/auth/components/LoginGoogle'
+import { useSignup } from '@/features/auth/hooks/useAuth'
 
 export function SignupForm() {
   const form = useForm<z.infer<typeof signupSchema>>({
@@ -83,19 +84,19 @@ export function SignupForm() {
         </div>
 
         <div className="">
-          <GoogleOAuthProvider clientId={AUTH_CONFIG.google.clientId as string}>
+          <GoogleOAuthProvider clientId={AUTH_CONFIG.GOOGLE.CLIENT_ID as string}>
             <LoginGoogle />
           </GoogleOAuthProvider>
         </div>
 
         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
           Already have an account?{' '}
-          <InternalLink
+          <Link
             href={ROUTE_PATHS.AUTH.LOGIN}
             className="font-medium text-primary-600 hover:underline dark:text-primary-500"
           >
             Login here
-          </InternalLink>
+          </Link>
         </p>
       </form>
     </Form>

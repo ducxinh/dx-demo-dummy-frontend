@@ -1,33 +1,29 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
+import { cn } from '@/lib/utils'
+import { Popover, Transition, PopoverButton } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
+import { Fragment } from 'react'
 import { recentPosts, resources } from '../../data'
-
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export function More() {
   return (
     <Popover className="relative">
       {({ open }) => (
         <>
-          <Popover.Button
-            className={classNames(
+          <PopoverButton
+            className={cn(
               open ? 'text-gray-900' : 'text-gray-500',
               'group bg-box rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500',
             )}
           >
             <span>More</span>
             <ChevronDownIcon
-              className={classNames(
+              className={cn(
                 open ? 'text-gray-600' : 'text-gray-400',
                 'ml-2 h-5 w-5 group-hover:text-gray-500',
               )}
               aria-hidden="true"
             />
-          </Popover.Button>
+          </PopoverButton>
 
           <Transition
             as={Fragment}

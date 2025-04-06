@@ -60,3 +60,5 @@ export const siteMetadata = {
   //   },
   // },
 }
+
+export default siteMetadata

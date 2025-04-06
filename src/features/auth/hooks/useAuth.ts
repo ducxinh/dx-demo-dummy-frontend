@@ -1,40 +1,17 @@
 import { AUTH_CONFIG } from '@/constants/auth'
 import { ROUTE_PATHS } from '@/constants/path'
+import authApiService from '@/features/auth/services/authApiService'
+import { useNavigate } from '@/hooks/useNavigate'
+import { useSearchParams } from '@/hooks/useSearchParams'
 import reporter from '@/lib/reporter'
 import { z } from '@/validations/zod'
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { useNavigate, useSearchParams } from 'react-router-dom'
-import authApiService from '../services/authApiService'
 import { useAuthStore } from '../store/authStore'
 import { AuthToken, AuthTokenProviderResponse, AuthTokenResponse, User } from '../types'
 import { loginSchema, signupSchema } from '../validations'
 
 type LoginPayload = z.infer<typeof loginSchema>
 type SignupPayload = z.infer<typeof signupSchema>
-
-export const useLogin = () => {
-  const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
-  const { setUser, setToken } = useAuthStore()
-
-  return useMutation({
-    mutationFn: async (data: LoginPayload) => {
-      const authToken: AuthTokenResponse = await authApiService.login(data)
-      setToken(authToken.accessToken)
-      const authUser: User = await authApiService.getProfile()
-      setUser(authUser)
-      return authUser
-    },
-    onSuccess: () => {
-      const redirect = searchParams.get('redirect')
-      if (redirect) {
-        navigate(redirect, { replace: true })
-      } else {
-        navigate(ROUTE_PATHS.DASHBOARD, { replace: true })
-      }
-    },
-  })
-}
 
 export const useSignup = () => {
   const navigate = useNavigate()
@@ -56,6 +33,30 @@ export const useSignup = () => {
         navigate(ROUTE_PATHS.AUTH.VERIFY_ACCOUNT, { replace: true })
       } else {
         navigate(ROUTE_PATHS.AUTH.LOGIN, { replace: true })
+      }
+    },
+  })
+}
+
+export const useLogin = () => {
+  const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
+  const { setUser, setToken } = useAuthStore()
+
+  return useMutation({
+    mutationFn: async (data: LoginPayload) => {
+      const authToken: AuthTokenResponse = await authApiService.login(data)
+      setToken(authToken.accessToken)
+      const authUser: User = await authApiService.getProfile()
+      setUser(authUser)
+      return authUser
+    },
+    onSuccess: () => {
+      const redirect = searchParams.get('redirect')
+      if (redirect) {
+        navigate(redirect, { replace: true })
+      } else {
+        navigate(ROUTE_PATHS.DASHBOARD, { replace: true })
       }
     },
   })
@@ -99,7 +100,7 @@ export const useLogout = () => {
     mutationFn: async () => {
       await authApiService.logout()
     },
-    onSuccess: () => {
+    onSettled: () => {
       setToken(null)
       setUser(null)
       setTempUser(null)

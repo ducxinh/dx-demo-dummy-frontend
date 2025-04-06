@@ -25,7 +25,7 @@ export default function SignupPage() {
                 width={50}
                 height={50}
               />
-              {SITE_META.default.title}
+              {SITE_META.DEFAULT.TITLE}
             </InternalLink>
             <Card className="w-full max-w-md shadow-lg">
               <div className="space-y-4 px-6 sm:px-8 md:space-y-6">

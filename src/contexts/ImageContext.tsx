@@ -21,7 +21,6 @@ export function ImageProvider({ children }: { children: React.ReactNode }) {
       <>
         {previewImage && (
           <ModelImage
-            title="Image"
             isOpen={!!previewImage}
             onClose={() => {
               setPreviewImage(undefined)

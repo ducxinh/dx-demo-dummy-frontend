@@ -1,6 +1,6 @@
 import { ErrorPage } from '@/components/common/ErrorPage'
 import { ROUTE_PATHS } from '@/constants/path'
-import { AuthGuard } from '@/guards/Auth'
+import { AuthGuard } from '@/guards/AuthGuard'
 import { AuthRedirect } from '@/guards/AuthRedirect'
 import AdminLayout from '@/layouts/admin/AdminLayout'
 import MainLayout from '@/layouts/MainLayout'

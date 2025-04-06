@@ -1,4 +1,4 @@
-import { Dialog, Transition, TransitionChild } from '@headlessui/react'
+import { Dialog, Transition, TransitionChild, DialogPanel } from '@headlessui/react'
 import { Fragment } from 'react'
 import { cn } from '@/lib/utils'
 import { FaChevronLeft } from 'react-icons/fa'
@@ -50,7 +50,7 @@ export function ModelImage(props: ModalProps) {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel
+              <DialogPanel
                 className={cn(
                   'w-full transform overflow-hidden rounded-2xl bg-box text-left align-middle shadow-xl transition-all',
                   size === 'md' ? 'max-w-md' : '',
@@ -73,7 +73,7 @@ export function ModelImage(props: ModalProps) {
                     <img src={file.url} />
                   </div>
                 </div>
-              </Dialog.Panel>
+              </DialogPanel>
             </TransitionChild>
           </div>
         </div>
