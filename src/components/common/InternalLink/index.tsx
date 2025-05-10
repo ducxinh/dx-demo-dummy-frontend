@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils'
 import { Link } from 'react-router-dom'
 
 interface Props extends React.LinkHTMLAttributes<HTMLElement> {
@@ -7,14 +8,11 @@ interface Props extends React.LinkHTMLAttributes<HTMLElement> {
 export function InternalLink(props: Props) {
   const { href, className, children, ...rest } = props
 
-  const resolveClass = () => {
-    const classList = ['text-primary', className || '']
-
-    return classList.join(' ')
-  }
-
   return (
-    <Link to={href} {...rest} className={resolveClass()}>
+    <Link to={href} {...rest} className={cn(
+      className,
+      "text-primary text-blue-500"
+    )}>
       {children}
     </Link>
   )

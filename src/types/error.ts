@@ -8,3 +8,12 @@ export type ApiErrorResponse = {
   message: string | Record<string, unknown>
   errors: ApiErrorResponseErrorItem[]
 }
+
+export type IError = {
+  message?: string
+  response?: {
+    data?: {
+      message?: string
+    }
+  }
+}

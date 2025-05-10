@@ -9,7 +9,14 @@ alwaysApply: true
   + [translation.ts](mdc:src/locales/en/translation.ts)
   + [translation.ts](mdc:src/locales/ja/translation.ts)
   + [translation.ts](mdc:src/locales/vi/translation.ts)
+- Always use typescript, type. 
+- Never use any
 
 ## Page structure
 - src/pages/<PageName>/index.tsx
 - Example: src/pages/Login/index.tsx
+
+## Style
+- Always use Shadcn and tailwind fo styling
+- Always use zustand
+- Always use React query

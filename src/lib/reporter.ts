@@ -1,10 +1,9 @@
-import { ErrorType } from '@/types/common'
-import { ApiErrorResponse } from '@/types/error'
+import { ApiErrorResponse, IError } from '@/types/error'
 import { AxiosError, isAxiosError } from 'axios'
 import { toast } from 'sonner'
 
 export const reporter = {
-  error(error: ErrorType | AxiosError | string | unknown) {
+  error(error: IError | AxiosError | string | unknown) {
     console.error(error)
     if (typeof error === 'string') {
       return toast.error(error)

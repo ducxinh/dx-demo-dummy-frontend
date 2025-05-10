@@ -1,13 +1,13 @@
 import { AUTH_CONFIG } from '@/constants/auth'
 import { User } from '@/features/auth/types'
 import { clearDataLSItem, getDataFromLS, setDataLS } from '@/lib/store'
-import { destroyCookie, setCookie } from 'nookies'
+import { destroyCookie, setCookie } from '@/lib/cookie'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
 type State = {
   token: string | null
-  user: User | null
+  user: User | null 
   tempUser: User | null
   setToken: (token: string | null) => void
   setUser: (user: User | null) => void

@@ -28,7 +28,7 @@ export function Header() {
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
-      <div className="ml-auto flex gap-3 md:gap-4">
+      <div className="ml-auto flex gap-3 md:gap-4 items-center">
         <LanguageSwitcher />
         <DropdownNotification />
         <DropdownUser />
