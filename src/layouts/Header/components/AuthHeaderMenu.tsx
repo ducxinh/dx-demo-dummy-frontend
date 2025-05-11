@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { ROUTE_PATHS } from '@/constants/path'
 import { useAuth } from '@/contexts/AuthContext'
 import { useEffect, useState } from 'react'
-import { DropdownUser } from './DropdownUser'
+import { DropdownUser } from '../../components/DropdownUser'
 
 export function AuthHeaderMenu() {
   const { user } = useAuth()
@@ -25,9 +25,6 @@ export function AuthHeaderMenu() {
         <>
           <Link href={ROUTE_PATHS.AUTH.LOGIN}>
             <Button variant="secondary">Sign in</Button>
-          </Link>
-          <Link href={ROUTE_PATHS.AUTH.SIGNUP}>
-            <Button>Sign up</Button>
           </Link>
         </>
       )}

@@ -2,8 +2,10 @@ import { Image } from '@/components/common/Image'
 import { InternalLink } from '@/components/common/InternalLink'
 import { Seo } from '@/components/common/Seo/Seo'
 import { Card } from '@/components/ui/card'
+import { USE_FIREBASE_AUTH } from '@/constants/auth'
 import { SITE_META } from '@/constants/meta'
 import { LoginForm } from '@/features/auth/components/LoginForm'
+import { LoginForm as LoginFormFirebase } from '@/features/auth/components/firebase/LoginForm'
 import { useTranslations } from '@/hooks/useTranslation'
 
 export default function LoginPage() {
@@ -33,7 +35,7 @@ export default function LoginPage() {
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
                   {t('signInTitle')}
                 </h1>
-                <LoginForm />
+                {USE_FIREBASE_AUTH ? <LoginFormFirebase /> : <LoginForm />}
               </div>
             </Card>
           </div>

@@ -1,10 +1,11 @@
 import { ErrorPage } from '@/components/common/ErrorPage'
 import { ROUTE_PATHS } from '@/constants/path'
 import { AuthGuard } from '@/guards/AuthGuard'
-import { AuthRedirect } from '@/guards/AuthRedirect'
+// import { AuthRedirect } from '@/guards/AuthRedirect'
 import AdminLayout from '@/layouts/admin/AdminLayout'
 import MainLayout from '@/layouts/MainLayout'
 import { About } from '@/pages/About/Loadable'
+import AccountPage from '@/pages/account/page'
 import { Dashboard } from '@/pages/Dashboard/Loadable'
 import EmailVerificationPage from '@/pages/EmailVerification'
 import { HomePage } from '@/pages/Home'
@@ -23,9 +24,9 @@ export const routes: RouteObject[] = [
       {
         index: true,
         element: (
-          <AuthRedirect>
-            <HomePage />
-          </AuthRedirect>
+          // <AuthRedirect>
+          <HomePage />
+          // </AuthRedirect>
         ),
       },
       {
@@ -46,6 +47,17 @@ export const routes: RouteObject[] = [
       },
     ],
   },
+  {
+    path: '/',
+    element: <MainLayout />,
+    children: [
+      {
+        path: ROUTE_PATHS.ACCOUNT,
+        element: <AccountPage />,
+      },
+    ],
+  },
+
   {
     path: '/',
     element: (

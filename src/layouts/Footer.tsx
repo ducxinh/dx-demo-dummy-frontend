@@ -4,7 +4,7 @@ import { InternalLink } from '@/components/common/InternalLink'
 export function Footer() {
   return (
     <footer className="bg-white rounded-lg dark:bg-gray-900 m-4 md:px-0">
-      <div className="container w-full _max-w-screen-xl mx-auto py-4 md:py-8 md:px-0">
+      <div className="container mx-auto py-4 md:py-8 md:px-0 px-4">
         <div className="sm:flex sm:items-center sm:justify-between">
           <InternalLink
             href="https://www.ducxinh.com/"
@@ -46,13 +46,13 @@ export function Footer() {
           </ul>
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400 text-center">
+        <div className="block text-sm text-gray-500 sm:text-center dark:text-gray-400 text-center mt-2">
           © 2023{' '}
           <InternalLink href="https://www.ducxinh.com/" className="hover:underline">
             Nix
           </InternalLink>
           . All Rights Reserved.
-        </span>
+        </div>
       </div>
     </footer>
   )

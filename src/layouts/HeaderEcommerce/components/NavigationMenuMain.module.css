@@ -1,0 +1,32 @@
+.NavigationMenu-has-search {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+.NavigationMenu-has-search > div {
+  flex: 1;
+}
+
+.NavigationMenu-has-search :global(.NavigationMenuList) {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the search input container */
+.NavigationMenu-has-search :global(.NavigationMenuList:last-child) {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .NavigationMenu-has-search {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .NavigationMenu-has-search :global(.NavigationMenuList:last-child) {
+    width: 100%;
+  }
+} 

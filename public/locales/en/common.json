@@ -24,5 +24,29 @@
     "label": "Change language",
     "locale": "{locale, select, en {🇺🇸} vi {🇻🇳} ja {🇯🇵} other {Unknown}}",
     "localeFull": "{locale, select, en {🇺🇸 English} vi {🇻🇳 Tiếng Việt} ja {🇯🇵 日本語} other {Unknown}}"
+  },
+  "footer": {
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "youtube": "YouTube",
+    "shop": "Shop",
+    "categories": "Categories",
+    "bestsellers": "Bestsellers",
+    "newArrivals": "New Arrivals",
+    "dealsDiscounts": "Deals & Discounts",
+    "schoolProgram": "School Program",
+    "help": "Help",
+    "faq": "FAQ",
+    "shippingReturns": "Shipping & Returns",
+    "contactUs": "Contact Us",
+    "trackOrder": "Track Your Order",
+    "privacyPolicy": "Privacy Policy",
+    "contact": "Contact",
+    "company": "EduShop Inc.",
+    "address1": "123 Learning Lane",
+    "address2": "Education City, ED 12345",
+    "country": "United States",
+    "emailLabel": "Email:",
+    "phoneLabel": "Phone:"
   }
 }

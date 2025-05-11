@@ -2,8 +2,10 @@ import { Image } from '@/components/common/Image'
 import { InternalLink } from '@/components/common/InternalLink'
 import { Seo } from '@/components/common/Seo/Seo'
 import { Card } from '@/components/ui/card'
+import { USE_FIREBASE_AUTH } from '@/constants/auth'
 import { SITE_META } from '@/constants/meta'
 import { SignupForm } from '@/features/auth/components/SignupForm'
+import { SignupForm as SignupFormFirebase } from '@/features/auth/components/firebase/SignupForm'
 import { useTranslations } from '@/hooks/useTranslation'
 
 export default function SignupPage() {
@@ -32,7 +34,7 @@ export default function SignupPage() {
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white md:text-2xl">
                   {t('signUpTitle')}
                 </h1>
-                <SignupForm />
+                {USE_FIREBASE_AUTH ? <SignupFormFirebase /> : <SignupForm />}
               </div>
             </Card>
           </div>

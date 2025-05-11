@@ -12,8 +12,9 @@ export function AuthRedirect({ children }: { children: JSX.Element }) {
   if (!user) {
     return <Navigate to={ROUTE_PATHS.AUTH.LOGIN} replace />
   } else {
+    const TARGET_AUTH_REDIRECT_ROUTE = ROUTE_PATHS.HOME
     return REDIRECT ? (
-      <Navigate to={ROUTE_PATHS.ADMIN.INDEX} state={{ from: location }} replace />
+      <Navigate to={TARGET_AUTH_REDIRECT_ROUTE} state={{ from: location }} replace />
     ) : (
       children
     )

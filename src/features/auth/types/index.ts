@@ -17,26 +17,33 @@ export type AuthTokenResponse = {
 }
 
 export type User = {
-  id: number
-  name: string
+  id?: number
+  uid?: string
+  name: string // displayName
+  displayName: string
   username: string
   email: string
-  emailVerifiedAt: string
-  passwordChangedAt: string
+  emailVerifiedAt?: string
+  passwordChangedAt?: string
   firstName: string
   lastName: string
   active: boolean
-  provider: string
-  socialId: string
+  provider?: string
+  socialId?: string
   role: RoleEnum
-  dob: string
-  gender: string
-  timezone: string
-  createdAt: string
-  updatedAt: string
-  deletedAt: string
+  dob?: string
+  gender?: string
+  timezone?: string
+  createdAt?: string
+  updatedAt?: string
+  deletedAt?: string
   avatar?: string
+  // photoURL
+  // phoneNumber
+  // createdAt
+  // lastLogin
 }
+
 
 export type AuthTokenProviderResponse = {
   access_token: string

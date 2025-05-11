@@ -1,11 +1,11 @@
 'use client'
 import { InternalLink } from '@/components/common/InternalLink'
+import { LogoMenu } from '@/layouts/components/LogoMenu'
 import { Popover, PopoverButton, PopoverPanel, Transition } from '@headlessui/react'
 import { ChartBarIcon } from '@heroicons/react/24/outline'
 import { Menu, XCircle } from 'lucide-react'
 import { Fragment } from 'react'
 import { AuthHeaderMenu } from '../AuthHeaderMenu'
-import { LogoMenu } from '../LogoMenu'
 
 type MenuItem = {
   title: string

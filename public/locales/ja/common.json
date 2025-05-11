@@ -21,8 +21,32 @@
   "lightMode": "Light mode",
   "Locale": {
     "language": "言語",
-    "label": "Change language",
+    "label": "言語を変更",
     "locale": "{locale, select, en {🇺🇸} vi {🇻🇳} ja {🇯🇵} other {Unknown}}",
     "localeFull": "{locale, select, en {🇺🇸 English} vi {🇻🇳 Tiếng Việt} ja {🇯🇵 日本語} other {Unknown}}"
+  },
+  "footer": {
+    "instagram": "Instagram",
+    "twitter": "Twitter",
+    "youtube": "YouTube",
+    "shop": "ショップ",
+    "categories": "カテゴリー",
+    "bestsellers": "ベストセラー",
+    "newArrivals": "新着商品",
+    "dealsDiscounts": "お得情報",
+    "schoolProgram": "学校プログラム",
+    "help": "ヘルプ",
+    "faq": "よくある質問",
+    "shippingReturns": "配送と返品",
+    "contactUs": "お問い合わせ",
+    "trackOrder": "注文追跡",
+    "privacyPolicy": "プライバシーポリシー",
+    "contact": "連絡先",
+    "company": "EduShop Inc.",
+    "address1": "123 Learning Lane",
+    "address2": "Education City, ED 12345",
+    "country": "United States",
+    "emailLabel": "メール:",
+    "phoneLabel": "電話:"
   }
 }

@@ -3,6 +3,9 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Required } from '@/components/ui/required'
 import { Control, FieldValues, Path } from 'react-hook-form'
+import { useState } from 'react'
+import { Eye, EyeOff } from 'lucide-react'
+import { Button } from './button'
 
 interface InputFieldProps<T extends FieldValues> {
   label: string
@@ -25,6 +28,9 @@ export const InputField = <T extends FieldValues>({
   className,
   required = true,
 }: InputFieldProps<T>) => {
+  const [showPassword, setShowPassword] = useState(false)
+  const isPassword = type === 'password'
+
   return (
     <FormField
       control={control}
@@ -36,7 +42,30 @@ export const InputField = <T extends FieldValues>({
             <Required show={required} />
           </Label>
           <FormControl>
-            <Input id={name} type={type} placeholder={placeholder} disabled={disabled} {...field} />
+            <div className="relative">
+              <Input 
+                id={name} 
+                type={isPassword ? (showPassword ? 'text' : 'password') : type} 
+                placeholder={placeholder} 
+                disabled={disabled} 
+                {...field} 
+              />
+              {isPassword && (
+                <Button
+                  type="button"
+                  variant="ghost"
+                  size="sm"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 p-0"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-4 w-4" />
+                  ) : (
+                    <Eye className="h-4 w-4" />
+                  )}
+                </Button>
+              )}
+            </div>
           </FormControl>
           <FormMessage />
         </FormItem>

@@ -3,6 +3,8 @@ import { ADMIN_ROUTE_PATHS } from './admin'
 export const ROUTE_PATHS = {
   HOME: '/',
   DASHBOARD: '/dashboard',
+  PROFILE: '/profile',
+  ACCOUNT: '/account',
   ABOUT: '/about',
   AUTH: {
     LOGIN: '/login',
