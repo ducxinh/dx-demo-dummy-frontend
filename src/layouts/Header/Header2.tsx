@@ -1,6 +1,6 @@
 import { Image } from '@/components/common/Image'
 import { InternalLink } from '@/components/common/InternalLink'
-import { LocaleSwitcher } from '@/components/common/LocaleSwitcher/LanguageSwitcher'
+import { LanguageSwitcher } from '@/components/common/LanguageSwitcher'
 import { Button } from '@/components/ui/button'
 import {
   NavigationMenu,
@@ -11,7 +11,7 @@ import {
 import { siteMetadata } from '@/data/siteMetadata'
 import { Menu, X } from 'lucide-react'
 import { useState } from 'react'
-import { AuthHeaderMenu } from '../AuthHeaderMenu'
+import { AuthHeaderMenu } from '../components/AuthHeaderMenu'
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -72,7 +72,7 @@ export function Header() {
           </NavigationMenu>
 
           <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <LocaleSwitcher />
+            <LanguageSwitcher />
             <AuthHeaderMenu />
           </div>
         </div>
@@ -149,7 +149,7 @@ export function Header() {
               </div>
               <div>
                 <div className="flex justify-center mb-4">
-                  <LocaleSwitcher />
+                  <LanguageSwitcher />
                 </div>
                 <InternalLink href="/signup">
                   <Button className="w-full">Sign up</Button>

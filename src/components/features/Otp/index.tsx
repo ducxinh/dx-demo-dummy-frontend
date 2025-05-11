@@ -8,7 +8,7 @@ interface Props {
 export default function Otp(params: Props) {
   const { otpSize = 6 } = params
   const [otp, setOtp] = useState(Array(otpSize).fill('')) // Array with 6 empty strings
-  const inputRefs = useRef<(HTMLInputElement | null)[]>([]) // Array of refs for each input field
+  const inputRefs = useRef<(HTMLInputElement | undefined)[]>([]) // Array of refs for each input field
   useEffect(() => {
     params.onChange(otp.join(''))
   }, [otp, params])
@@ -73,7 +73,8 @@ export default function Otp(params: Props) {
                   onKeyDown={handleKeyDown}
                   onFocus={handleFocus}
                   onPaste={handlePaste}
-                  ref={(el) => (inputRefs.current[index] = el as HTMLInputElement | null)}
+                  // eslint-disable-next-line
+                  ref={(el) => (inputRefs.current[index] = el as unknown as any)}
                   className="flex h-full w-full flex-col items-center justify-center rounded-xl border border-gray-200 bg-box px-5 text-center text-lg outline-none ring-blue-700 focus:bg-gray-50 focus:ring-1"
                 />
               </div>

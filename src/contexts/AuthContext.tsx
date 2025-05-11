@@ -6,6 +6,7 @@ interface AuthContextType {
   user: User | null
   onSignIn: (user: User, callback: VoidFunction) => void
   onSignOut: (callback: VoidFunction) => void
+  logout: () => void
 }
 
 const AuthContext = React.createContext<AuthContextType>(null!)
@@ -24,7 +25,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     callback()
   }
 
-  const value = { user, onSignIn, onSignOut }
+  const logout = () => {
+    setUser(null)
+  }
+
+  const value = { user, onSignIn, onSignOut, logout }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

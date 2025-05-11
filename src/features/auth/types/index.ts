@@ -35,6 +35,7 @@ export type User = {
   createdAt: string
   updatedAt: string
   deletedAt: string
+  avatar?: string
 }
 
 export type AuthTokenProviderResponse = {

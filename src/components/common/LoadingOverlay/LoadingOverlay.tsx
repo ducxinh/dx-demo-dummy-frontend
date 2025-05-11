@@ -10,7 +10,7 @@ export function LoadingOverlay(props: Props) {
       <div className="loading">
         {Array(12)
           .fill(1)
-          .map((item, index) => (
+          .map((_item, index) => (
             <div key={index}> </div>
           ))}
       </div>
