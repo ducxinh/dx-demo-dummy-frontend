@@ -1,3 +1,9 @@
 {
-  "title": "Home"
+  "title": "Home",
+  "dummy_alert": "Đây là trang web giả lập để kiểm thử tự động hóa web",
+  "dummy_features_title": "Tính năng mẫu",
+  "todo_list": "Demo Danh sách việc cần làm",
+  "todo_list_desc": "Một danh sách việc cần làm đơn giản để demo.",
+  "ecommerce_demo": "Demo Thương mại điện tử",
+  "ecommerce_demo_desc": "Trang chủ thương mại điện tử mẫu cho kiểm thử UI/tự động hóa."
 }

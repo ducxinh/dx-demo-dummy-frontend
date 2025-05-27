@@ -14,6 +14,9 @@ alwaysApply: true
 
 ## Page structure
 - src/pages/<PageName>/index.tsx
+- src/features/<PageName>/components/*
+- src/features/<PageName>/types/*
+- src/features/<PageName>/services/*
 - Example: src/pages/Login/index.tsx
 
 ## Style

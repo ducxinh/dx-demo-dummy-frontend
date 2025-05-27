@@ -1,9 +1,9 @@
 // @ts-check
 export const siteMetadata = {
   // Code Builder, CodeGen
-  title: 'XinhND',
+  title: 'IT Demo Dummy',
   author: 'Nguyen Duc Xinh',
-  headerTitle: 'XinhND',
+  headerTitle: 'IT Demo Dummy',
   // description: 'Discover best practices and tech news shared by the DucXinhIT.',
   description: `Welcome to my website!
   My name is Nguyen Duc Xinh. I'm a senior Full-Stack Web Application Developer with a strong passion and extensive experience in the IT industry.

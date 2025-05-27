@@ -13,6 +13,7 @@ export type I18nNamespace =
   | 'zod'
   | 'users'
   | 'footer'
+  | 'ecommerce'
 // export interface TranslationResources {
 //   common: {
 //     welcome: string;

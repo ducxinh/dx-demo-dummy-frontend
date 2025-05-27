@@ -4,13 +4,16 @@ import { AuthGuard } from '@/guards/AuthGuard'
 // import { AuthRedirect } from '@/guards/AuthRedirect'
 import AdminLayout from '@/layouts/admin/AdminLayout'
 import MainLayout from '@/layouts/MainLayout'
+import MainLayoutSimple from '@/layouts/MainLayoutSimple'
 import { About } from '@/pages/About/Loadable'
 import AccountPage from '@/pages/account/page'
 import { Dashboard } from '@/pages/Dashboard/Loadable'
+import EcommerceDemoPage from '@/pages/EcommerceDemo'
 import EmailVerificationPage from '@/pages/EmailVerification'
 import { HomePage } from '@/pages/Home'
 import LoginPage from '@/pages/Login'
 import SignupPage from '@/pages/Signup'
+import TodoList from '@/pages/TodoList'
 import { createBrowserRouter, Navigate, RouteObject } from 'react-router-dom'
 import adminRoutes from './admin'
 
@@ -19,7 +22,7 @@ export const routes: RouteObject[] = [
   {
     errorElement: <ErrorPage />,
     path: '/',
-    element: <MainLayout />,
+    element: <MainLayoutSimple />,
     children: [
       {
         index: true,
@@ -45,7 +48,22 @@ export const routes: RouteObject[] = [
         path: ROUTE_PATHS.ABOUT,
         element: <About />,
       },
+      {
+        path: '/todo',
+        element: <TodoList />,
+      },
     ],
+  },
+  {
+    errorElement: <ErrorPage />,
+    path: '/',
+    element: <MainLayout />,
+    children: [
+      {
+        path: '/ecommerce',
+        element: <EcommerceDemoPage />,
+      },
+    ]
   },
   {
     path: '/',

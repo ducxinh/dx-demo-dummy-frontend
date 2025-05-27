@@ -1,3 +1,9 @@
 {
-  "title": "Home"
+  "title": "ホーム",
+  "dummy_alert": "これはWeb自動化テスト用のダミーサイトです",
+  "dummy_features_title": "ダミー機能",
+  "todo_list": "Todoリストデモ",
+  "todo_list_desc": "デモ用のシンプルなTodoリストです。",
+  "ecommerce_demo": "Eコマースデモ",
+  "ecommerce_demo_desc": "UI/自動化テスト用のモックEコマースホームページ。"
 }
