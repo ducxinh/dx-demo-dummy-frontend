@@ -35,7 +35,7 @@ export const InputField = <T extends FieldValues>({
     <FormField
       control={control}
       name={name}
-      render={({ field }) => (
+      render={({ field, fieldState }) => (
         <FormItem className={className}>
           <Label htmlFor={name} className="flex items-center gap-1">
             {label}
@@ -43,12 +43,13 @@ export const InputField = <T extends FieldValues>({
           </Label>
           <FormControl>
             <div className="relative">
-              <Input 
-                id={name} 
-                type={isPassword ? (showPassword ? 'text' : 'password') : type} 
-                placeholder={placeholder} 
-                disabled={disabled} 
-                {...field} 
+              <Input
+                id={name}
+                type={isPassword ? (showPassword ? 'text' : 'password') : type}
+                placeholder={placeholder}
+                disabled={disabled}
+                aria-invalid={fieldState.error ? 'true' : 'false'}
+                {...field}
               />
               {isPassword && (
                 <Button
@@ -58,11 +59,7 @@ export const InputField = <T extends FieldValues>({
                   className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 p-0"
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? (
-                    <EyeOff className="h-4 w-4" />
-                  ) : (
-                    <Eye className="h-4 w-4" />
-                  )}
+                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </Button>
               )}
             </div>

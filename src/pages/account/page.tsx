@@ -1,9 +1,7 @@
-import Account from "@/features/account-ecommerce"
+import Account from '@/features/account-ecommerce'
 
 export function AccountPage() {
-  return (
-    <Account />
-  )
+  return <Account />
 }
 
 export default AccountPage

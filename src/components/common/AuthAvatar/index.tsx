@@ -1,5 +1,5 @@
-import { useAuthStore } from "@/features/auth/store/authStore"
-import { cn } from "@/lib/utils"
+import { useAuthStore } from '@/features/auth/store/authStore'
+import { cn } from '@/lib/utils'
 
 type AvatarProps = {
   size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
@@ -28,4 +28,3 @@ export function AuthAvatar({ size = 'md', className }: AvatarProps) {
     </div>
   )
 }
-

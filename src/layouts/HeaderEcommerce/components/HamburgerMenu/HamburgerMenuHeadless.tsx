@@ -5,7 +5,6 @@ import { Popover, PopoverButton, PopoverPanel, Transition } from '@headlessui/re
 import { Heart, Menu, Search, ShoppingCart, User, XCircle } from 'lucide-react'
 import { Fragment } from 'react'
 
-
 export function HamburgerMenu() {
   return (
     <Popover>
@@ -64,10 +63,16 @@ export function HamburgerMenu() {
                 >
                   Bestsellers
                 </InternalLink>
-                <InternalLink href="/deals" className="text-gray-700 hover:text-primary font-medium py-2">
+                <InternalLink
+                  href="/deals"
+                  className="text-gray-700 hover:text-primary font-medium py-2"
+                >
                   Deals
                 </InternalLink>
-                <InternalLink href="/new" className="text-gray-700 hover:text-primary font-medium py-2">
+                <InternalLink
+                  href="/new"
+                  className="text-gray-700 hover:text-primary font-medium py-2"
+                >
                   New Arrivals
                 </InternalLink>
               </nav>

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils'
 
 type AvatarProps = {
   src: string
@@ -24,4 +24,3 @@ export function Avatar({ src, alt, size = 'md', className }: AvatarProps) {
     </div>
   )
 }
-

@@ -4,7 +4,7 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  navigationMenuTriggerStyle
+  navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import { cn } from '@/lib/utils'
 import { Search } from 'lucide-react'
@@ -15,7 +15,7 @@ import styles from './NavigationMenuMain.module.css'
 export function NavigationMenuMain() {
   return (
     <NavigationMenu className={cn('flex-1 max-w-full', styles['NavigationMenu-has-search'])}>
-      <NavigationMenuList className='w-full'>
+      <NavigationMenuList className="w-full">
         {MAIN_MENU_ITEMS.map((menu) => (
           <NavigationMenuItem key={menu.id}>
             <span>
@@ -25,7 +25,7 @@ export function NavigationMenuMain() {
             </span>
           </NavigationMenuItem>
         ))}
-        <NavigationMenuItem className='flex-1'>
+        <NavigationMenuItem className="flex-1">
           <div className="relative w-full">
             <input
               type="text"

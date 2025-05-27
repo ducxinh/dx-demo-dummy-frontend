@@ -13,7 +13,6 @@ import { cn } from '@/lib/utils'
 import { Search } from 'lucide-react'
 import * as React from 'react'
 
-
 const menus = [
   {
     id: 1,
@@ -25,7 +24,7 @@ const menus = [
         name: 'Categories',
         href: '/categories',
       },
-    ]
+    ],
   },
   {
     id: 2,
@@ -46,7 +45,7 @@ const menus = [
 
 export function NavigationMenuMain() {
   return (
-    <NavigationMenu className=''>
+    <NavigationMenu className="">
       <NavigationMenuList>
         {menus.map((menu) => (
           <NavigationMenuItem key={menu.id}>
@@ -72,7 +71,7 @@ export function NavigationMenuMain() {
             )}
           </NavigationMenuItem>
         ))}
-        <NavigationMenuItem className='min-w-[300px]'>
+        <NavigationMenuItem className="min-w-[300px]">
           <div className="relative w-full min-w-[500px]">
             <input
               type="text"

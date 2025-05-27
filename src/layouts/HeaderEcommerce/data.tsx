@@ -1,6 +1,6 @@
-import { Heart, User } from "lucide-react"
+import { Heart, User } from 'lucide-react'
 
-import { ShoppingCart } from "lucide-react"
+import { ShoppingCart } from 'lucide-react'
 
 export const MAIN_MENU_ITEMS = [
   {
@@ -25,18 +25,18 @@ export const HAMBURGER_MENU_ITEMS = [
     id: 1,
     name: 'Wishlist',
     href: '/wishlist',
-    icon: Heart
+    icon: Heart,
   },
   {
     id: 2,
     name: 'Cart',
     href: '/cart',
-    icon: ShoppingCart
+    icon: ShoppingCart,
   },
   {
     id: 3,
     name: 'Account',
     href: '/account',
-    icon: User
+    icon: User,
   },
 ]

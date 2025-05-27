@@ -1,17 +1,9 @@
-import { AuthAvatar } from '@/components/common/AuthAvatar';
-import {
-  CreditCard,
-  Heart,
-  LogOut,
-  MapPin,
-  Settings,
-  ShoppingBag,
-  User
-} from 'lucide-react';
-import { useState } from 'react';
+import { AuthAvatar } from '@/components/common/AuthAvatar'
+import { CreditCard, Heart, LogOut, MapPin, Settings, ShoppingBag, User } from 'lucide-react'
+import { useState } from 'react'
 
 export default function Account() {
-  const [activeTab, setActiveTab] = useState('profile');
+  const [activeTab, setActiveTab] = useState('profile')
 
   // Mock user data
   const user = {
@@ -21,22 +13,22 @@ export default function Account() {
     orders: [
       { id: '#123456', date: '2023-04-15', status: 'Delivered', total: '$156.00' },
       { id: '#123457', date: '2023-05-20', status: 'Processing', total: '$89.99' },
-      { id: '#123458', date: '2023-06-12', status: 'Shipped', total: '$210.50' }
+      { id: '#123458', date: '2023-06-12', status: 'Shipped', total: '$210.50' },
     ],
     wishlist: [
       { id: 1, name: 'Wireless Headphones', price: '$129.99' },
       { id: 2, name: 'Smart Watch', price: '$249.99' },
-      { id: 3, name: 'Portable Speaker', price: '$79.99' }
+      { id: 3, name: 'Portable Speaker', price: '$79.99' },
     ],
     addresses: [
       { id: 1, type: 'Home', address: '123 Main St, Apt 4B, New York, NY 10001' },
-      { id: 2, type: 'Work', address: '456 Business Ave, Suite 200, New York, NY 10018' }
+      { id: 2, type: 'Work', address: '456 Business Ave, Suite 200, New York, NY 10018' },
     ],
     paymentMethods: [
       { id: 1, type: 'Credit Card', last4: '4242', expiry: '05/25' },
-      { id: 2, type: 'PayPal', email: 'john.doe@example.com' }
-    ]
-  };
+      { id: 2, type: 'PayPal', email: 'john.doe@example.com' },
+    ],
+  }
 
   // Mobile navigation tabs
   const mobileNavTabs = [
@@ -45,8 +37,8 @@ export default function Account() {
     { id: 'wishlist', label: 'Wishlist', icon: <Heart size={20} /> },
     { id: 'addresses', label: 'Address', icon: <MapPin size={20} /> },
     { id: 'payment', label: 'Payment', icon: <CreditCard size={20} /> },
-    { id: 'settings', label: 'Settings', icon: <Settings size={20} /> }
-  ];
+    { id: 'settings', label: 'Settings', icon: <Settings size={20} /> },
+  ]
 
   // Sidebar menu items for desktop
   const sidebarItems = [
@@ -55,8 +47,8 @@ export default function Account() {
     { id: 'wishlist', label: 'My Wishlist', icon: <Heart size={18} /> },
     { id: 'addresses', label: 'My Addresses', icon: <MapPin size={18} /> },
     { id: 'payment', label: 'Payment Methods', icon: <CreditCard size={18} /> },
-    { id: 'settings', label: 'Account Settings', icon: <Settings size={18} /> }
-  ];
+    { id: 'settings', label: 'Account Settings', icon: <Settings size={18} /> },
+  ]
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -83,10 +75,11 @@ export default function Account() {
           {mobileNavTabs.map((tab) => (
             <button
               key={tab.id}
-              className={`px-4 py-2 flex flex-col items-center text-xs rounded-lg ${activeTab === tab.id
-                ? 'text-blue-600 bg-blue-50 font-medium'
-                : 'text-gray-500 hover:bg-gray-100'
-                }`}
+              className={`px-4 py-2 flex flex-col items-center text-xs rounded-lg ${
+                activeTab === tab.id
+                  ? 'text-blue-600 bg-blue-50 font-medium'
+                  : 'text-gray-500 hover:bg-gray-100'
+              }`}
               onClick={() => setActiveTab(tab.id)}
             >
               {tab.icon}
@@ -111,10 +104,11 @@ export default function Account() {
               {sidebarItems.map((item) => (
                 <button
                   key={item.id}
-                  className={`w-full flex items-center px-4 py-3 rounded-lg text-left ${activeTab === item.id
-                    ? 'bg-blue-50 text-blue-600 font-medium'
-                    : 'text-gray-700 hover:bg-gray-100'
-                    }`}
+                  className={`w-full flex items-center px-4 py-3 rounded-lg text-left ${
+                    activeTab === item.id
+                      ? 'bg-blue-50 text-blue-600 font-medium'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
                   onClick={() => setActiveTab(item.id)}
                 >
                   <span className="mr-3">{item.icon}</span>
@@ -123,7 +117,9 @@ export default function Account() {
               ))}
 
               <button className="w-full flex items-center px-4 py-3 rounded-lg text-left text-red-600 hover:bg-red-50">
-                <span className="mr-3"><LogOut size={18} /></span>
+                <span className="mr-3">
+                  <LogOut size={18} />
+                </span>
                 <span>Logout</span>
               </button>
             </div>
@@ -142,7 +138,9 @@ export default function Account() {
                     <h3 className="text-lg font-medium mb-4">Personal Information</h3>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Full Name
+                        </label>
                         <input
                           type="text"
                           defaultValue={user.name}
@@ -150,7 +148,9 @@ export default function Account() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Email
+                        </label>
                         <input
                           type="email"
                           defaultValue={user.email}
@@ -158,7 +158,9 @@ export default function Account() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Phone Number
+                        </label>
                         <input
                           type="tel"
                           placeholder="Enter your phone number"
@@ -166,7 +168,9 @@ export default function Account() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Birthday</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Birthday
+                        </label>
                         <input
                           type="date"
                           className="w-full p-2 border border-gray-300 rounded-md"
@@ -183,9 +187,7 @@ export default function Account() {
                         <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
                           Change Picture
                         </button>
-                        <p className="text-xs text-gray-500 mt-1">
-                          JPG, GIF or PNG. Max size 2MB
-                        </p>
+                        <p className="text-xs text-gray-500 mt-1">JPG, GIF or PNG. Max size 2MB</p>
                       </div>
                     </div>
                   </div>
@@ -216,16 +218,19 @@ export default function Account() {
                     <tbody className="divide-y divide-gray-200">
                       {user.orders.map((order) => (
                         <tr key={order.id} className="hover:bg-gray-50">
-                          <td className="px-4 py-4 text-sm font-medium text-gray-900">{order.id}</td>
+                          <td className="px-4 py-4 text-sm font-medium text-gray-900">
+                            {order.id}
+                          </td>
                           <td className="px-4 py-4 text-sm text-gray-500">{order.date}</td>
                           <td className="px-4 py-4 text-sm">
                             <span
-                              className={`px-2 py-1 text-xs font-medium rounded-full ${order.status === 'Delivered'
-                                ? 'bg-green-100 text-green-800'
-                                : order.status === 'Processing'
-                                  ? 'bg-yellow-100 text-yellow-800'
-                                  : 'bg-blue-100 text-blue-800'
-                                }`}
+                              className={`px-2 py-1 text-xs font-medium rounded-full ${
+                                order.status === 'Delivered'
+                                  ? 'bg-green-100 text-green-800'
+                                  : order.status === 'Processing'
+                                    ? 'bg-yellow-100 text-yellow-800'
+                                    : 'bg-blue-100 text-blue-800'
+                              }`}
                             >
                               {order.status}
                             </span>
@@ -249,7 +254,10 @@ export default function Account() {
                 <h1 className="text-2xl font-bold mb-6">My Wishlist</h1>
                 <div className="grid md:grid-cols-2 gap-4">
                   {user.wishlist.map((item) => (
-                    <div key={item.id} className="border border-gray-200 rounded-lg p-4 flex justify-between items-center">
+                    <div
+                      key={item.id}
+                      className="border border-gray-200 rounded-lg p-4 flex justify-between items-center"
+                    >
                       <div className="flex items-center">
                         <div className="w-16 h-16 bg-gray-100 rounded-md flex items-center justify-center">
                           <ShoppingBag size={24} className="text-gray-400" />
@@ -310,7 +318,10 @@ export default function Account() {
                 </div>
                 <div className="space-y-4">
                   {user.paymentMethods.map((method) => (
-                    <div key={method.id} className="border border-gray-200 rounded-lg p-4 flex justify-between items-center">
+                    <div
+                      key={method.id}
+                      className="border border-gray-200 rounded-lg p-4 flex justify-between items-center"
+                    >
                       <div className="flex items-center">
                         <div className="w-12 h-12 bg-gray-100 rounded-md flex items-center justify-center">
                           {method.type === 'Credit Card' ? (
@@ -322,7 +333,9 @@ export default function Account() {
                         <div className="ml-4">
                           <h3 className="font-medium">{method.type}</h3>
                           {method.type === 'Credit Card' ? (
-                            <p className="text-gray-600">•••• •••• •••• {method.last4} | Expires {method.expiry}</p>
+                            <p className="text-gray-600">
+                              •••• •••• •••• {method.last4} | Expires {method.expiry}
+                            </p>
                           ) : (
                             <p className="text-gray-600">{method.email}</p>
                           )}
@@ -346,7 +359,9 @@ export default function Account() {
                     <h3 className="text-lg font-medium mb-4">Password</h3>
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Current Password</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                          Current Password
+                        </label>
                         <input
                           type="password"
                           placeholder="Enter current password"
@@ -355,7 +370,9 @@ export default function Account() {
                       </div>
                       <div className="md:col-span-2 grid md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">New Password</label>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                            New Password
+                          </label>
                           <input
                             type="password"
                             placeholder="Enter new password"
@@ -363,7 +380,9 @@ export default function Account() {
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">Confirm New Password</label>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">
+                            Confirm New Password
+                          </label>
                           <input
                             type="password"
                             placeholder="Confirm new password"
@@ -393,7 +412,9 @@ export default function Account() {
                       <div className="flex items-center justify-between">
                         <div>
                           <h4 className="font-medium">Promotions</h4>
-                          <p className="text-sm text-gray-500">Receive emails about new promotions</p>
+                          <p className="text-sm text-gray-500">
+                            Receive emails about new promotions
+                          </p>
                         </div>
                         <label className="relative inline-flex items-center cursor-pointer">
                           <input type="checkbox" className="sr-only peer" />
@@ -451,5 +472,5 @@ export default function Account() {
         </div>
       </div>
     </div>
-  );
+  )
 }

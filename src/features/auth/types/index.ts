@@ -44,7 +44,6 @@ export type User = {
   // lastLogin
 }
 
-
 export type AuthTokenProviderResponse = {
   access_token: string
   refresh_token: string

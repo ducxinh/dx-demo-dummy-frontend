@@ -14,8 +14,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { FirebaseLoginGoogle } from './LoginGoogle'
 
-
-
 export function LoginForm() {
   const form = useForm<z.infer<typeof loginSchema>>({
     mode: 'onBlur',

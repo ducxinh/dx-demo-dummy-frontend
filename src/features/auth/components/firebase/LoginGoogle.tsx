@@ -1,11 +1,11 @@
 'use client'
-import { auth, provider } from '@/services/firebase/firebase';
-import { signInWithPopup } from 'firebase/auth';
-import React from 'react';
+import { auth, provider } from '@/services/firebase/firebase'
+import { signInWithPopup } from 'firebase/auth'
+import React from 'react'
 // useGoogleOneTapLogin
-import { GoogleIcon } from '@/components/icons/GoogleIcon';
+import { GoogleIcon } from '@/components/icons/GoogleIcon'
 // import Cookies from 'js-cookie'
-import { useGoogleLoginFirebase as useGoogleLoginHook } from '@/features/auth/hooks/useAuth';
+import { useGoogleLoginFirebase as useGoogleLoginHook } from '@/features/auth/hooks/useAuth'
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactElement | React.ReactElement[] | string | number
@@ -16,8 +16,6 @@ export function FirebaseLoginGoogle(props: SectionProps) {
   const { className, ...rest } = props
   const googleLoginMutation = useGoogleLoginHook()
 
-
-
   const signInWithGoogle = async () => {
     signInWithPopup(auth, provider)
       .then(async (result) => {
@@ -26,7 +24,8 @@ export function FirebaseLoginGoogle(props: SectionProps) {
         } catch (error) {
           console.error(error)
         }
-      }).catch((error) => {
+      })
+      .catch((error) => {
         console.error(error)
         // Handle Errors here.
         // const errorCode = error.code;
@@ -36,9 +35,8 @@ export function FirebaseLoginGoogle(props: SectionProps) {
         // // The AuthCredential type that was used.
         // const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
-      });
-
-  };
+      })
+  }
 
   return (
     <div {...rest} className={'block'}>
@@ -52,7 +50,6 @@ export function FirebaseLoginGoogle(props: SectionProps) {
           Sign in with Google
         </button>
       </div>
-
     </div>
   )
 }

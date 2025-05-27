@@ -9,10 +9,7 @@ export function InternalLink(props: Props) {
   const { href, className, children, ...rest } = props
 
   return (
-    <Link to={href} {...rest} className={cn(
-      className,
-      "text-primary text-blue-500"
-    )}>
+    <Link to={href} {...rest} className={cn(className, 'text-primary text-blue-500')}>
       {children}
     </Link>
   )

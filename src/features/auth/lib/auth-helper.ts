@@ -13,5 +13,5 @@ export const parseFirebaseUser = (user: FirebaseUser): User => {
     email: user.email as string,
     active: true,
     role: RoleEnum.USER,
-  }
+  } as User
 }

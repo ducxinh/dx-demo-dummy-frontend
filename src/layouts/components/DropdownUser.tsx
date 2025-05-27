@@ -13,7 +13,7 @@ export function DropdownUser() {
   const menuItems = [
     // { id: 1, label: 'Admin', path: ROUTE_PATHS.ADMIN.INDEX },
     // { id: 2, label: 'Dashboard', path: ROUTE_PATHS.DASHBOARD },
-    { id: 1, label: 'My Account', path: ROUTE_PATHS.ACCOUNT},
+    { id: 1, label: 'My Account', path: ROUTE_PATHS.ACCOUNT },
   ]
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -53,8 +53,9 @@ export function DropdownUser() {
                 {({ active }) => (
                   <Link to={menuItem.path}>
                     <button
-                      className={`${active ? 'bg-primary text-white' : 'text-gray-900'
-                        } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                      className={`${
+                        active ? 'bg-primary text-white' : 'text-gray-900'
+                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                     >
                       {menuItem.label}
                     </button>
@@ -70,8 +71,9 @@ export function DropdownUser() {
                       navigate(ROUTE_PATHS.AUTH.LOGIN)
                     })
                   }
-                  className={`${active ? 'bg-primary text-white' : 'text-gray-900'
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                  className={`${
+                    active ? 'bg-primary text-white' : 'text-gray-900'
+                  } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                 >
                   Logout
                 </button>

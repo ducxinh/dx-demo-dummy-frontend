@@ -5,15 +5,7 @@ import { InternalLink as Link } from '@/components/common/InternalLink'
 import { Badge } from '@/components/ui/badge'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardTitle } from '@/components/ui/card'
-import {
-  ArrowRight,
-  Blocks,
-  BookOpen,
-  Heart,
-  Palette,
-  Star,
-  Tablet
-} from 'lucide-react'
+import { ArrowRight, Blocks, BookOpen, Heart, Palette, Star, Tablet } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { HeroBannerCarousel } from './HeroBannerCarousel'
 
@@ -22,25 +14,25 @@ const featuredCategories = [
     id: 1,
     name: 'Electronics',
     icon: <Tablet className="w-12 h-12 text-blue-600" />,
-    count: 120
+    count: 120,
   },
   {
     id: 2,
     name: 'Books',
     icon: <BookOpen className="w-12 h-12 text-green-600" />,
-    count: 85
+    count: 85,
   },
   {
     id: 3,
     name: 'Toys',
     icon: <Blocks className="w-12 h-12 text-amber-600" />,
-    count: 64
+    count: 64,
   },
   {
     id: 4,
     name: 'Art Supplies',
     icon: <Palette className="w-12 h-12 text-purple-600" />,
-    count: 42
+    count: 42,
   },
 ]
 
@@ -50,7 +42,8 @@ const featuredProducts = [
     name: "Beginner's Science Kit",
     price: 24.99,
     rating: 4.8,
-    image: 'https://s3.ap-northeast-1.amazonaws.com/scontent.ducxinh.com/public/images/7f1711b3-edcb-4bf3-88e8-64f51188a7df.png',
+    image:
+      'https://s3.ap-northeast-1.amazonaws.com/scontent.ducxinh.com/public/images/7f1711b3-edcb-4bf3-88e8-64f51188a7df.png',
     discount: 15,
   },
   {
@@ -58,14 +51,16 @@ const featuredProducts = [
     name: 'Story Book Collection',
     price: 19.99,
     rating: 4.7,
-    image: 'https://s3.ap-northeast-1.amazonaws.com/scontent.ducxinh.com/public/images/6c5976e1-619c-4581-8cd4-2ccae2f1c3ba.png',
+    image:
+      'https://s3.ap-northeast-1.amazonaws.com/scontent.ducxinh.com/public/images/6c5976e1-619c-4581-8cd4-2ccae2f1c3ba.png',
   },
   {
     id: 3,
     name: 'Educational Tablet',
     price: 129.99,
     rating: 4.9,
-    image: 'https://s3.ap-northeast-1.amazonaws.com/scontent.ducxinh.com/public/images/894e3a49-5760-497b-9d5b-5267c8ebfdc3.png',
+    image:
+      'https://s3.ap-northeast-1.amazonaws.com/scontent.ducxinh.com/public/images/894e3a49-5760-497b-9d5b-5267c8ebfdc3.png',
     bestseller: true,
   },
   {
@@ -73,14 +68,16 @@ const featuredProducts = [
     name: 'Math Learning Cards',
     price: 12.99,
     rating: 4.5,
-    image: 'https://s3.ap-northeast-1.amazonaws.com/scontent.ducxinh.com/public/images/cfed1b16-71fa-4614-8827-9a36ebf9b1b6.png',
+    image:
+      'https://s3.ap-northeast-1.amazonaws.com/scontent.ducxinh.com/public/images/cfed1b16-71fa-4614-8827-9a36ebf9b1b6.png',
   },
   {
     id: 5,
     name: 'Creativity Art Set',
     price: 34.99,
     rating: 4.6,
-    image: 'https://s3.ap-northeast-1.amazonaws.com/scontent.ducxinh.com/public/images/84729df3-aa7b-466b-87eb-39c6e1332601.png',
+    image:
+      'https://s3.ap-northeast-1.amazonaws.com/scontent.ducxinh.com/public/images/84729df3-aa7b-466b-87eb-39c6e1332601.png',
     discount: 10,
   },
 ]
@@ -222,9 +219,7 @@ export function Home() {
                 <Link href={`/category/${category.id}`} key={category.id}>
                   <div className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
                     <div className="relative p-6 flex flex-col items-center justify-center">
-                      <div className="mb-4">
-                        {category.icon}
-                      </div>
+                      <div className="mb-4">{category.icon}</div>
                       <div className="text-center">
                         <h3 className="text-gray-800 font-semibold">{category.name}</h3>
                         <p className="text-gray-600 text-sm">{category.count} products</p>
@@ -255,7 +250,6 @@ export function Home() {
                 </Link>
               ))}
             </div> */}
-
           </div>
         </section>
 
