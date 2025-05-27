@@ -17,5 +17,5 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NJNDEX_ECOMMERCE }}
-          projectId: njndex-ecommerce
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_DUMMY_DEMO_NJNDEX }}
+          projectId: dummy-demo-njndex
