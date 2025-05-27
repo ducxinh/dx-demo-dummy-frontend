@@ -1,9 +1,9 @@
 {
   "title": "Home",
-  "dummy_alert": "This is a dummy website for Web Automation Testing",
+  "dummy_alert": "This is a dummy website for developers",
   "dummy_features_title": "Dummy Features",
   "todo_list": "Todo List Demo",
   "todo_list_desc": "A simple todo list for demo purposes.",
   "ecommerce_demo": "Ecommerce Demo",
-  "ecommerce_demo_desc": "A mock ecommerce homepage for UI/automation testing."
+  "ecommerce_demo_desc": "A mock ecommerce homepage for developers"
 }
