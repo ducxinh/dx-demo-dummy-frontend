@@ -1,3 +1,4 @@
+import { ROUTE_PATHS } from "@/constants/path";
 import { DummyDemoFeature } from "../types";
 
 export const DUMMY_DEMO_FEATURES: DummyDemoFeature[] = [
@@ -5,13 +6,13 @@ export const DUMMY_DEMO_FEATURES: DummyDemoFeature[] = [
     key: 'todo_list',
     title: 'Todo List Demo',
     desc: 'A simple todo list for demo purposes.',
-    path: '/todo',
+    path: ROUTE_PATHS.TODO_LIST,
   },
   {
     key: 'ecommerce_demo',
     title: 'Ecommerce Demo',
     desc: 'A mock ecommerce homepage for developers',
-    path: '/ecommerce',
+    path: ROUTE_PATHS.ECOMMERCE.INDEX,
   },
   {
     key: 'image_dummy',

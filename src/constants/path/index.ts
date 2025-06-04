@@ -6,6 +6,10 @@ export const ROUTE_PATHS = {
   PROFILE: '/profile',
   ACCOUNT: '/account',
   ABOUT: '/about',
+  TODO_LIST: '/todo-list',
+  ECOMMERCE: {
+    INDEX: '/ecommerce',
+  },
   AUTH: {
     LOGIN: '/login',
     LOGIN_CALLBACK: '/auth/login/callback',

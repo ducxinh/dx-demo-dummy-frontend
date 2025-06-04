@@ -49,7 +49,7 @@ export const routes: RouteObject[] = [
         element: <About />,
       },
       {
-        path: '/todo',
+        path: ROUTE_PATHS.TODO_LIST,
         element: <TodoList />,
       },
     ],
@@ -60,7 +60,7 @@ export const routes: RouteObject[] = [
     element: <MainLayout />,
     children: [
       {
-        path: '/ecommerce',
+        path: ROUTE_PATHS.ECOMMERCE.INDEX,
         element: <EcommerceDemoPage />,
       },
     ]

@@ -3,6 +3,7 @@
 import { cn } from '@/lib/utils'
 import { LogoMenu } from '../components/LogoMenu'
 import { HamburgerMenu } from './components/HamburgerMenu'
+import { DesktopNavigationBasic } from './components/DesktopNavigationBasic'
 
 export function HeaderBasic({ sticky = true }: { sticky?: boolean }) {
   return (
@@ -16,6 +17,7 @@ export function HeaderBasic({ sticky = true }: { sticky?: boolean }) {
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <LogoMenu />
           </div>
+          <DesktopNavigationBasic />
           <div className="-mr-2 -my-2 md:hidden flex items-center">
             <HamburgerMenu />
           </div>

@@ -47,10 +47,10 @@ export const TodoList: React.FC<TodoListProps> = () => {
           <input
             type="text"
             className="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Add a new todo"
+            placeholder="What needs to be done?"
             value={newTodo}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setNewTodo(e.target.value)}
-            onKeyPress={handleKeyPress}
+            onKeyDown={handleKeyPress}
           />
           <button
             onClick={handleAddTodo}
