@@ -84,16 +84,27 @@ export const TodoList: React.FC<TodoListProps> = () => {
                 ${todo.completed ? 'bg-green-50 border-green-200' : 'bg-white border-gray-100 hover:shadow-md hover:border-blue-300'}`}
             >
               <div className="flex items-center gap-3">
-                <button
-                  onClick={() => toggleComplete(todo.id)}
-                  className={`rounded-full border-2 w-6 h-6 flex items-center justify-center transition
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={todo.completed}
+                    onChange={() => toggleComplete(todo.id)}
+                    className="sr-only peer"
+                    data-testid={`todo-checkbox-${todo.id}`}
+                  />
+                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition
                     ${todo.completed ? 'border-green-500 bg-green-500' : 'border-gray-300 bg-white hover:border-blue-400'}
-                  `}
-                  aria-label="Mark complete"
+                    peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-blue-300`}
+                  >
+                    {todo.completed && <CheckCircleIcon className="h-5 w-5 text-white" />}
+                  </div>
+                </label>
+                <span 
+                  data-testid={`todo-text-${todo.id}`}
+                  className={`text-lg ${todo.completed ? 'line-through text-gray-400' : 'text-gray-800'} transition`}
                 >
-                  {todo.completed && <CheckCircleIcon className="h-5 w-5 text-white" />}
-                </button>
-                <span className={`text-lg ${todo.completed ? 'line-through text-gray-400' : 'text-gray-800'} transition`}>{todo.text}</span>
+                  {todo.text}
+                </span>
               </div>
               <button
                 onClick={() => deleteTodo(todo.id)}
